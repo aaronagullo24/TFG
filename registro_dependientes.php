@@ -8,22 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/AjaxCode.js"></script>
 </head>
 
 <body style="background-color: aquamarine;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
@@ -45,48 +40,64 @@
 
     <form>
 
-        <div class="form-group"> 
+        <div class="form-group">
             <label for="full_name_id" class="control-label">DNI</label>
             <input type="text" class="form-control" id="DNI" name="DNI" placeholder="12345678D">
-        </div>    
-    
-        <div class="form-group"> 
+        </div>
+
+        <div class="form-group">
             <label for="street1_id" class="control-label">Nombre</label>
             <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre apellido1 apellido2">
-        </div>                    
-                                
-        <div class="form-group"> 
+        </div>
+
+        <div class="form-group">
             <label for="street2_id" class="control-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" >
-        </div>    
-    
-        <div class="form-group"> 
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+
+        <div class="form-group">
             <label for="comment" class="control-label">Dependencia</label>
-            <textarea  class="form-control"  maxlength="100" id="Dependencia" name="Dependencia" placeholder="Explique brevemente su problema"></textarea>
-        </div>                                    
-                                
-        <div class="form-group"> 
-            <label for="zip_id" class="control-label">Provincia</label>
-            <input type="text" class="form-control" id="Provincia" name="provincia">
-        </div> 
-        <div class="form-group"> 
-            <label for="zip_id" class="control-label">Ciudad</label>
-            <input type="text" class="form-control" id="ciudad" name="ciudad">
-        </div>          
-        
-        <div class="form-group"> 
+            <textarea class="form-control" maxlength="100" id="Dependencia" name="Dependencia" placeholder="Explique brevemente su problema"></textarea>
+        </div>
+
+        <div class="form-group">
+
+            <label for="provincia" class="control-label">Seleccione su provincia:</label>
+            <br>
+            <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()" class="form-control">
+                <option>Seleccione su provincia...</option>
+                <?php
+                $xml = simplexml_load_file('provinciasypoblaciones.xml');
+                $result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
+                for ($i = 0; $i < count($result); $i += 2) {
+                    $e = $i + 1;
+                    $provincia = UTF8_DECODE($result[$e]);
+                    echo ("<option value='$result[$i]'>$provincia</option>");
+                }
+                ?>
+            </select>
+
+            <br>
+            
+            <label for="localidad" class="control-label">Seleccione su localidad:</label> <br>
+            <select name="localidadList" id="localidadList" class="form-control">
+                <option>Seleccione antes una provincia</option>
+            </select> <span id="advice"> </span>
+        </div>
+
+        <div class="form-group">
             <label for="zip_id" class="control-label">Direccion</label>
             <input type="text" class="form-control" id="direccion" name="direccion">
-        </div> 
+        </div>
 
-        <div class="form-group"> 
+        <div class="form-group">
             <label for="zip_id" class="control-label">Edad</label>
             <input type="number" class="form-control" id="edad" name="edad">
-        </div>     
-        <div class="form-group"> 
+        </div>
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">REGISTRARSE</button>
-        </div>     
-        
+        </div>
+
 </body>
 
 </html>
