@@ -12,8 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/AjaxCode.js"></script>
-    <script  src="js/comprobar_form_voluntarios.js"></script>
-    <script  src="js/mi_libreriaAjax.js"></script>
+    <script src="js/comprobar_form_voluntarios.js"></script>
+    <script src="js/mi_libreriaAjax.js"></script>
 </head>
 
 <body style="background-color: aquamarine;">
@@ -71,7 +71,7 @@
             <div id="Titulacion"></div>
         </div>
 
-       
+
 
         <div class="form-group">
 

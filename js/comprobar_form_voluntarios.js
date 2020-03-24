@@ -19,14 +19,16 @@ window.addEventListener("load", function () {
 
 
 	let boton = document.getElementById('boton');
-	boton.addEventListener("click", boton);
+	boton.addEventListener("click", comprobar_boton_form);
 
 });
 
 //alta
 function comprobar_boton_form() {
 	let correcto = true;
+	console.log(comprobar);
 	for (i = 0; i < comprobar.length; i++) {
+
 		if (comprobar[i] == "F") correcto = false;
 	}
 	if (correcto) llamarAjax('alta_voluntarios.php', gParAlta(), 'cBAlta', 'F_Error', 'post', 0);
@@ -110,10 +112,13 @@ function cBCorreo(resultado) {
 function comprobar_edad() {
 	if (document.getElementById('edad').value == '') {
 		document.getElementById("Edad").innerHTML = "RELLENA EL CAMPO";
+		comprobar[3] = "F";
 	} else if (document.getElementById("edad").value >= 99) {
 		document.getElementById("Edad").innerHTML = "La edad debe ser un numero entre el 1 y el 99";
+		comprobar[3] = "F";
 	} else {
 		document.getElementById("Edad").innerHTML = "";
+		comprobar[3] = "V";
 		llamarAjax('', gParEdad(), '', 'F_Error', 'post', 0);
 	}
 }
