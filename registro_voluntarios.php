@@ -106,10 +106,19 @@
         <div class="form-group">
             <label for="zip_id" class="control-label">Edad</label>
             <input type="number" class="form-control" id="edad" name="edad">
+            <div id="Edad"></div>
         </div>
+
+        <div class="form-group">
+            <label for="zip_id" class="control-label">Correo Electronico</label>
+            <input type="email" class="form-control" id="correo" name="correo">
+
+            <div id="Correo"></div>
+        </div>
+
         <div id="pepin"></div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">REGISTRARSE</button>
+            <button type="submit" class="btn btn-primary" id="boton">REGISTRARSE</button>
         </div>
 
 
