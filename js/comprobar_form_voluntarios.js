@@ -1,5 +1,5 @@
-let comprobar = Array("F", "F", "F", "F", "F", "F");
-// DNI Nombre titulacion Nick edad correo
+let comprobar = Array("F", "F", "F", "F", "F", "F","F");
+// DNI Nombre titulacion Nick edad correo password
 console.log(comprobar);
 window.addEventListener("load", function () {
 	let DNI = document.getElementById('DNI');
@@ -8,8 +8,9 @@ window.addEventListener("load", function () {
 	let Nick = document.getElementById("Nick");
 	let edad = document.getElementById("edad");
 	let correo = document.getElementById("correo");
+	let password = document.getElementById("password");
 
-
+	password.addEventListener("blur",comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
 	DNI.addEventListener("blur", comprobar_dni);
 	Nick.addEventListener("blur", comprobar_nick);
@@ -22,13 +23,25 @@ window.addEventListener("load", function () {
 	boton.addEventListener("click", comprobar_boton_form);
 
 });
-
+//password
+function comprobar_password() {
+	if (document.getElementById('password').value == '') {
+		document.getElementById("Password").innerHTML = "RELLENA EL CAMPO";
+		comprobar[6] = "F";
+	} else {
+		document.getElementById("Password").innerHTML = "";
+		comprobar[6] = "V";
+		llamarAjax('', gParPassword(), '', 'F_Error', 'post', 0);
+	}
+}
+function gParPassword() {
+	return "password=" + document.getElementById('password').value;
+}
 //alta
 function comprobar_boton_form() {
 	let correcto = true;
 	console.log(comprobar);
 	for (i = 0; i < comprobar.length; i++) {
-
 		if (comprobar[i] == "F") correcto = false;
 	}
 	if (correcto) llamarAjax('alta_voluntarios.php', gParAlta(), 'cBAlta', 'F_Error', 'post', 0);
@@ -50,12 +63,20 @@ function gParAlta() {
 
 function cBAlta(resultado) {
 	let datos = JSON.parse(resultado);
+	
+	if (datos.alta == true) {	
+		
+		var myobj = document.getElementById("form");
+		myobj.remove();
 
-	let p = document.getElementById("pepin");
-	if (datos.alta == true) {
-		p.style.color = "green";
-		p.innerHTML = "DADO DE ALTA";
-		comprobar[1] = "F";
+		var newDiv = document.createElement("div"); 
+		var newContent = document.createTextNode("DADO DE ALTA"); 
+		newDiv.appendChild(newContent); 
+	  
+		// añade el elemento creado y su contenido al DOM 
+		var currentDiv = document.getElementById("div1"); 
+		document.body.insertBefore(newDiv, currentDiv);
+
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}

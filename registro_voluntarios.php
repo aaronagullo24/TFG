@@ -16,7 +16,7 @@
     <script src="js/mi_libreriaAjax.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: aquamarine;" >
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -40,7 +40,7 @@
         </div>
     </nav>
 
-    <form>
+    <form id="form">
 
         <div class="form-group">
             <label for="full_name_id" class="control-label">DNI</label>
@@ -62,6 +62,7 @@
         <div class="form-group">
             <label for="street2_id" class="control-label">Password</label>
             <input type="password" class="form-control" id="password" name="password">
+            <div id="Password"></div>
         </div>
 
 
@@ -116,7 +117,7 @@
             <div id="Correo"></div>
         </div>
 
-        <div id="pepin"></div>
+    
         <div class="form-group">
             <button type="submit" class="btn btn-primary" id="boton">REGISTRARSE</button>
         </div>
