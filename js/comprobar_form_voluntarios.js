@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
 
 	password.addEventListener("blur",comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
-	
+
 	correo.addEventListener("blur", comprobar_correo);
 
 
@@ -32,7 +32,6 @@ function gParPassword() {
 }
 //alta
 function comprobar_boton_form() {
-	alert("www");
 	let correcto = true;
 	console.log(comprobar);
 	for (i = 0; i < comprobar.length; i++) {
@@ -132,6 +131,10 @@ function comprobar_nombre() {
 		comprobar[0] = "V";
 		llamarAjax('', gParNOMBRE(), '', 'F_Error', 'post', 0);
 	}
+}
+
+function gParNOMBRE() {
+	return "Nombre=" + document.getElementById('Nombre').value;
 }
 
 
