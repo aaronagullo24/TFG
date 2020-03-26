@@ -16,7 +16,7 @@
     <script src="js/mi_libreriaAjax.js"></script>
 </head>
 
-<body style="background-color: aquamarine;" >
+<body style="background-color: aquamarine;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -40,87 +40,71 @@
         </div>
     </nav>
 
-    <form id="form">
+    <div class="container">
+        <br>
 
-        <div class="form-group">
-            <label for="full_name_id" class="control-label">DNI</label>
-            <input type="text" class="form-control" id="DNI" name="DNI" placeholder="12345678D">
-            <div id="dni"></div>
+        <hr>
+
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Registro Voluntarios</h4>
+
+                <form>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input id="Nombre" name="Nombre"  class="form-control" placeholder="Nombre completo" type="text">
+                        <div id="nombre"></div>
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email">
+                        <div id="Correo"></div>
+                    </div> 
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        </div>
+                        <select class="form-control" id="titulacion">
+                            <option selected=""> Seleccione si posee algun titulo...</option>
+                            <option>Gerontología. </option>
+                            <option>Neurología. </option>
+                            <option>Enfermería. </option>
+                            <option>Fisioterapia. </option>
+                            <option>Cuidado y asistencia al adulto.  </option>
+                            <option>Educación social. </option>
+                            <option>Trabajo social.  </option>
+                            <option>Nutrición y dietética. </option>
+                            <option>Educación para adultos.  </option>
+                            <option>Otros...  </option>
+                            <option>Ninguno  </option>
+
+                        </select>
+                    </div> 
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" id="password" placeholder="Create password" type="password">
+                        <div id="Password"></div>
+                    </div> 
+                   
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="boton"> Crear cuenta </button>
+                    </div> 
+
+                </form>
+            </article>
         </div>
 
-        <div class="form-group">
-            <label for="street1_id" class="control-label">Nombre</label>
-            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre apellido1 apellido2">
-            <div id="nombre"></div>
-        </div>
-        <div class="form-group">
-            <label for="city_id" class="control-label">Nick</label>
-            <input type="text" class="form-control" id="Nick" name="Nick" placeholder="Nos servira para identificarnos en la aplicacion">
-            <div id="nick"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="street2_id" class="control-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-            <div id="Password"></div>
-        </div>
-
-
-        <div class="form-group">
-            <label for="city_id" class="control-label">Titulacion</label>
-            <input type="text" class="form-control" id="titulacion" name="titulacion" placeholder="Titulos que tienes en posesion">
-            <div id="Titulacion"></div>
-        </div>
+    </div>
 
 
 
-        <div class="form-group">
-
-            <label for="provincia" class="control-label">Seleccione su provincia:</label>
-            <br>
-            <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()" class="form-control">
-                <option>Seleccione su provincia...</option>
-                <?php
-                $xml = simplexml_load_file('provinciasypoblaciones.xml');
-                $result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
-                for ($i = 0; $i < count($result); $i += 2) {
-                    $e = $i + 1;
-                    $provincia = UTF8_DECODE($result[$e]);
-                    echo ("<option value='$result[$i]'>$provincia</option>");
-                }
-                ?>
-            </select>
-
-            <br>
-
-            <label for="localidad" class="control-label">Seleccione su localidad:</label> <br>
-            <select name="localidadList" id="localidadList" class="form-control">
-                <option>Seleccione antes una provincia</option>
-            </select> <span id="advice"> </span>
-        </div>
-
-        <div class="form-group">
-            <label for="zip_id" class="control-label">Direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion">
-        </div>
-
-        <div class="form-group">
-            <label for="zip_id" class="control-label">Edad</label>
-            <input type="number" class="form-control" id="edad" name="edad">
-            <div id="Edad"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="zip_id" class="control-label">Correo Electronico</label>
-            <input type="email" class="form-control" id="correo" name="correo">
-
-            <div id="Correo"></div>
-        </div>
-
-    
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="boton">REGISTRARSE</button>
-        </div>
 
 
 </body>
