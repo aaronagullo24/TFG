@@ -32,6 +32,7 @@ function gParPassword() {
 }
 //alta
 function comprobar_boton_form() {
+	alert("www");
 	let correcto = true;
 	console.log(comprobar);
 	for (i = 0; i < comprobar.length; i++) {

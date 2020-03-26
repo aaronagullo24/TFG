@@ -10,13 +10,12 @@ $Password = $_REQUEST['password'];
 $titulacion = $_REQUEST['titulacion'];
 
 
-
-
 try {
-    $sql = "INSERT INTO voluntario (Nombre,Correo,Titulacion,Password) value 
-    (:Nombre,,:Correo,:Titulacion,:Password)";
+    $sql = "INSERT INTO voluntario (Numero_socio,Nombre,Correo,Titulacion,Password) value 
+    (:Numero_socio,:Nombre,,:Correo,:Titulacion,:Password)";
     $consulta = $conexion->prepare($sql);
     $consulta->execute([
+        ":Numero_socio"=>null,
         ":Nombre" => $Nombre,
         ":Correo" => $Correo,
         ":Titulacion"=>$titulacion,
