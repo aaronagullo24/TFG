@@ -84,6 +84,7 @@
                             <option>Ninguno  </option>
 
                         </select>
+                        <div id="Titulacion"></div>
                     </div> 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">

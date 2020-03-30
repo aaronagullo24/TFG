@@ -1,14 +1,15 @@
-let comprobar = Array("F", "F", "F");
-//Nombre correo password
+let comprobar = Array("F", "F", "F","F");
+//Nombre correo password titulacion
 console.log(comprobar);
 window.addEventListener("load", function () {
 	let Nombre = document.getElementById('Nombre');
 	let correo = document.getElementById("correo");
 	let password = document.getElementById("password");
+	let titulacion = document.getElementById("titulacion");
 
 	password.addEventListener("blur",comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
-
+	titulacion.addEventListener("blur",comprobar_titulacion);
 	correo.addEventListener("blur", comprobar_correo);
 
 
@@ -16,6 +17,23 @@ window.addEventListener("load", function () {
 	boton.addEventListener("click", comprobar_boton_form);
 
 });
+
+//Titulo
+function comprobar_titulacion() {
+	if (document.getElementById('titulacion').value == 'Seleccione si posee algun titulo...') {
+		document.getElementById("Titulacion").innerHTML = "RELLENA EL CAMPO";
+		comprobar[3] = "F";
+	} else {
+		document.getElementById("Titulacion").innerHTML = "&#10004";
+		comprobar[3] = "V";
+		llamarAjax('', gParTitulacion(), '', 'F_Error', 'post', 0);
+	}
+}
+
+function gParTitulacion() {
+	return "titulacion=" + document.getElementById('titulacion').value;
+}
+
 //password
 function comprobar_password() {
 	if (document.getElementById('password').value == '') {
@@ -53,20 +71,11 @@ function cBAlta(resultado) {
 	
 	if (datos.alta == true) {	
 		
-		var myobj = document.getElementById("form");
-		myobj.remove();
-
-		var newDiv = document.createElement("div"); 
-		var newContent = document.createTextNode("DADO DE ALTA"); 
-		newDiv.appendChild(newContent); 
-	  
-		// añade el elemento creado y su contenido al DOM 
-		var currentDiv = document.getElementById("div1"); 
-		document.body.insertBefore(newDiv, currentDiv);
 
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
+		window.location.replace("usuario_correcto.html");
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";

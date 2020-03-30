@@ -78,7 +78,7 @@
 
                     <div class="input-group mb-8">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Provincia en la que vive</label>
+                            <label class="input-group-text" for="inputGroupSelect01">Provincia en la que vive: </label>
                         </div>
 
                         <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()" class="custom-select">
@@ -93,17 +93,19 @@
                             }
                             ?>
                         </select>
+                        <div id="provincia"></div>
 
                         <br>
                         <br>
                     </div>
                     <div class="input-group mb-8">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Localidad en la que vive</label>
+                            <label class="input-group-text" for="inputGroupSelect01">Localidad en la que vive: </label>
                         </div>
                         <select name="localidadList" id="localidadList" class="form-control">
                             <option>Seleccione antes una provincia</option>
                         </select> <span id="advice"> </span>
+                        <div id="localidad"></div>
                     </div>
                     <br>
 
@@ -121,7 +123,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <textarea class="form-control" rows="3" id="dependencia">Escriba brevemente su dependencia...</textarea>
+                        <textarea class="form-control" rows="3" id="dependencia" placeholder="Escriba brevemente sus necesidad y patologias"></textarea>
 
                         <div id="fecha"></div>
 

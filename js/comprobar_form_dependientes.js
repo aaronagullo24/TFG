@@ -1,21 +1,56 @@
-let comprobar = Array("F", "F", "F");
-//Nombre correo password
+let comprobar = Array("F", "F", "F", "F");
+//Nombre correo password provincia
 console.log(comprobar);
 window.addEventListener("load", function () {
 	let Nombre = document.getElementById('Nombre');
 	let correo = document.getElementById("correo");
 	let password = document.getElementById("password");
+	let provinciaList = document.getElementById("provinciaList");
+	let localidadList = document.getElementById("localidadList");
 
-	password.addEventListener("blur",comprobar_password);
+	password.addEventListener("blur", comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
-
+	provinciaList.addEventListener("blur", comprobar_provincia);
 	correo.addEventListener("blur", comprobar_correo);
+	localidadList.addEventListener("blur", comprobar_localidad);
 
 
 	let boton = document.getElementById('boton');
 	boton.addEventListener("click", comprobar_boton_form);
 
 });
+
+//provincia
+function comprobar_provincia() {
+	if (document.getElementById('provinciaList').value == 'Seleccione su provincia...') {
+		document.getElementById("provincia").innerHTML = "RELLENA EL CAMPO";
+		comprobar[3] = "F";
+	} else {
+		document.getElementById("provincia").innerHTML = "&#10004";
+		comprobar[3] = "V";
+		llamarAjax('', gParProvincia(), '', 'F_Error', 'post', 0);
+	}
+}
+
+function gParProvincia() {
+	return "provinciaList=" + document.getElementById('provinciaList').value;
+}
+
+//Localidad
+function comprobar_localidad() {
+	if (document.getElementById('localidadList').value == 'Seleccione antes una provincia') {
+		document.getElementById("localidad").innerHTML = "RELLENA EL CAMPO";
+		comprobar[3] = "F";
+	} else {
+		document.getElementById("localidad").innerHTML = "&#10004";
+		comprobar[3] = "V";
+		llamarAjax('', gParLocalidad(), '', 'F_Error', 'post', 0);
+	}
+}
+
+function gParLocalidad() {
+	return "localidadList=" + document.getElementById('localidadList').value;
+}
 //password
 function comprobar_password() {
 	if (document.getElementById('password').value == '') {
@@ -44,6 +79,8 @@ function comprobar_boton_form() {
 function gParAlta() {
 	return "Nombre=" + document.getElementById('Nombre').value +
 		"&correo=" + document.getElementById('correo').value +
+		"&provinciaList=" + document.getElementById('provinciaList').value +
+		"&localidadList=" + document.getElementById('localidadList').value +
 		"&password=" + document.getElementById('password').value;
 }
 
@@ -52,13 +89,13 @@ function cBAlta(resultado) {
 
 	let p = document.getElementById("alta");
 	if (datos.alta == true) {
-		
+
 		comprobar[1] = "F";
-		
+
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
-		alert("dado de alta correctamente");
+		window.location.replace("usuario_correcto.html");
 		p.style.color = "green";
 		p.innerHTML = "DADO DE ALTA";
 	} else {

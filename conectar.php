@@ -1,8 +1,8 @@
 <?php
-define("PASSWORD", "");
-define("USUARIO", "root");
-define("BB_DD", "oldver");
-define("SERVIDOR", "localhost");
+define("PASSWORD", "10052007Sh$");
+define("USUARIO", "dbu456650");
+define("BB_DD", "dbs332813");
+define("SERVIDOR", "db5000342437.hosting-data.io");
 
 function conectar()
 {
