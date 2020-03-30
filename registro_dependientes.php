@@ -12,6 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/AjaxCode.js"></script>
+    <script src="js/comprobar_form_dependientes.js"></script>
+    <script src="js/mi_libreriaAjax.js"></script>
+
 </head>
 
 <body style="background-color: aquamarine;">
@@ -38,65 +41,107 @@
         </div>
     </nav>
 
-    <form>
+    <div class="container">
+       
+        <hr>
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 800px;">
+                <h4 class="card-title mt-3 text-center">Registro Dependientes</h4>
 
-        <div class="form-group">
-            <label for="full_name_id" class="control-label">DNI</label>
-            <input type="text" class="form-control" id="DNI" name="DNI" placeholder="12345678D">
+                <form>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input id="Nombre" name="Nombre" class="form-control input-lg" aria-describedby="inputGroup-sizing-lg" placeholder="Nombre completo" type="text">
+
+                        <div id="nombre"></div>
+                    </div>
+                    <br>
+
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email">
+                        <div id="Correo"></div>
+                    </div>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" id="password" placeholder="Create password" type="password">
+                        <div id="Password"></div>
+                    </div>
+                    <br>
+
+                    <div class="input-group mb-8">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Provincia en la que vive</label>
+                        </div>
+
+                        <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()" class="custom-select">
+                            <option>Seleccione su provincia...</option>
+                            <?php
+                            $xml = simplexml_load_file('provinciasypoblaciones.xml');
+                            $result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
+                            for ($i = 0; $i < count($result); $i += 2) {
+                                $e = $i + 1;
+                                $provincia = UTF8_DECODE($result[$e]);
+                                echo ("<option value='$result[$i]'>$provincia</option>");
+                            }
+                            ?>
+                        </select>
+
+                        <br>
+                        <br>
+                    </div>
+                    <div class="input-group mb-8">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Localidad en la que vive</label>
+                        </div>
+                        <select name="localidadList" id="localidadList" class="form-control">
+                            <option>Seleccione antes una provincia</option>
+                        </select> <span id="advice"> </span>
+                    </div>
+                    <br>
+
+
+                    <div class="form-group">
+                        <label for="start">Fecha de nacimiento:</label>
+
+                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+                    </div>
+
+
+
+                    <br>
+                    <div class="form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <textarea class="form-control" rows="3" id="dependencia">Escriba brevemente su dependencia...</textarea>
+
+                        <div id="fecha"></div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="boton"> Crear cuenta </button>
+                    </div>
+                    <div id="alta"></div>
+
+                </form>
+            </article>
         </div>
 
-        <div class="form-group">
-            <label for="street1_id" class="control-label">Nombre</label>
-            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre apellido1 apellido2">
-        </div>
+    </div>
 
-        <div class="form-group">
-            <label for="street2_id" class="control-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
 
-        <div class="form-group">
-            <label for="comment" class="control-label">Dependencia</label>
-            <textarea class="form-control" maxlength="100" id="Dependencia" name="Dependencia" placeholder="Explique brevemente su problema"></textarea>
-        </div>
 
-        <div class="form-group">
 
-            <label for="provincia" class="control-label">Seleccione su provincia:</label>
-            <br>
-            <select name="provinciaList" id="provinciaList" onChange="return provinciaListOnChange()" class="form-control">
-                <option>Seleccione su provincia...</option>
-                <?php
-                $xml = simplexml_load_file('provinciasypoblaciones.xml');
-                $result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
-                for ($i = 0; $i < count($result); $i += 2) {
-                    $e = $i + 1;
-                    $provincia = UTF8_DECODE($result[$e]);
-                    echo ("<option value='$result[$i]'>$provincia</option>");
-                }
-                ?>
-            </select>
-
-            <br>
-            
-            <label for="localidad" class="control-label">Seleccione su localidad:</label> <br>
-            <select name="localidadList" id="localidadList" class="form-control">
-                <option>Seleccione antes una provincia</option>
-            </select> <span id="advice"> </span>
-        </div>
-
-        <div class="form-group">
-            <label for="zip_id" class="control-label">Direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion">
-        </div>
-
-        <div class="form-group">
-            <label for="zip_id" class="control-label">Edad</label>
-            <input type="number" class="form-control" id="edad" name="edad">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">REGISTRARSE</button>
-        </div>
 
 </body>
 
