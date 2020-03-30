@@ -49,14 +49,18 @@ function gParAlta() {
 
 function cBAlta(resultado) {
 	let datos = JSON.parse(resultado);
-	
-	if (datos.alta == true) {	
-		
-		document.getElementById("alta").innerHTML="Dado de alta";
 
+	let p = document.getElementById("alta");
+	if (datos.alta == true) {
+		
+		comprobar[1] = "F";
+		
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
+		alert("dado de alta correctamente");
+		p.style.color = "green";
+		p.innerHTML = "DADO DE ALTA";
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";
@@ -127,6 +131,12 @@ function gParNOMBRE() {
 	return "Nombre=" + document.getElementById('Nombre').value;
 }
 
+
+function F_Error(textoError) {
+	let contenedor = document.getElementById('alta');
+	contenedor.innerHTML = "Se a producido un error: " + textoError + " ";
+	alert("Error en la pagina");
+}
 
 
 
