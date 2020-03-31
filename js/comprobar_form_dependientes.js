@@ -1,5 +1,5 @@
-let comprobar = Array("F", "F", "F", "F");
-//Nombre correo password provincia
+let comprobar = Array("F", "F", "F", "F","F");
+//Nombre correo password provincia localidad
 console.log(comprobar);
 window.addEventListener("load", function () {
 	let Nombre = document.getElementById('Nombre');
@@ -40,10 +40,10 @@ function gParProvincia() {
 function comprobar_localidad() {
 	if (document.getElementById('localidadList').value == 'Seleccione antes una provincia') {
 		document.getElementById("localidad").innerHTML = "RELLENA EL CAMPO";
-		comprobar[3] = "F";
+		comprobar[4] = "F";
 	} else {
 		document.getElementById("localidad").innerHTML = "&#10004";
-		comprobar[3] = "V";
+		comprobar[4] = "V";
 		llamarAjax('', gParLocalidad(), '', 'F_Error', 'post', 0);
 	}
 }
@@ -68,7 +68,7 @@ function gParPassword() {
 //alta
 function comprobar_boton_form() {
 	let correcto = true;
-	console.log(comprobar);
+	alert(comprobar);
 	for (i = 0; i < comprobar.length; i++) {
 		if (comprobar[i] == "F") correcto = false;
 	}
@@ -81,23 +81,20 @@ function gParAlta() {
 		"&correo=" + document.getElementById('correo').value +
 		"&provinciaList=" + document.getElementById('provinciaList').value +
 		"&localidadList=" + document.getElementById('localidadList').value +
+		"&fecha_nacimiento=" + document.getElementById('fecha_nacimiento').value +
+		"&necesidad=" + document.getElementById('dependencia').value +
 		"&password=" + document.getElementById('password').value;
 }
 
 function cBAlta(resultado) {
 	let datos = JSON.parse(resultado);
-
-	let p = document.getElementById("alta");
 	if (datos.alta == true) {
-
-		comprobar[1] = "F";
-
+	
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
 		window.location.replace("usuario_correcto.html");
-		p.style.color = "green";
-		p.innerHTML = "DADO DE ALTA";
+		
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";
