@@ -35,7 +35,7 @@
             </div>
             <div class="d-flex flex-row justify-content-center">
                 <a href="elejis_tipo_usuario.html" class="btn btn-outline-primary mr-2">Nuevo Usuario</a>
-                <a href="#" class="btn btn-outline-danger">Entrar</a>
+                <a href="login.php" class="btn btn-outline-danger">Entrar</a>
             </div>
         </div>
     </nav>

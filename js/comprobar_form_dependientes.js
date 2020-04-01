@@ -1,6 +1,5 @@
 let comprobar = Array("F", "F", "F", "F","F");
 //Nombre correo password provincia localidad
-console.log(comprobar);
 window.addEventListener("load", function () {
 	let Nombre = document.getElementById('Nombre');
 	let correo = document.getElementById("correo");
