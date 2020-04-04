@@ -67,7 +67,7 @@ function gParPassword() {
 //alta
 function comprobar_boton_form() {
 	let correcto = true;
-	alert(comprobar);
+	
 	for (i = 0; i < comprobar.length; i++) {
 		if (comprobar[i] == "F") correcto = false;
 	}

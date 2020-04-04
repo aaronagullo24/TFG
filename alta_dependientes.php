@@ -13,6 +13,11 @@ $Necesidad = $_REQUEST['necesidad'];
 $Password = $_REQUEST['password'];
 
 
+$provinciaList = (int) $Provincia;
+$xml = simplexml_load_file('provinciasypoblaciones.xml');
+$resultado = $xml->xpath("/ lista / provincia / nombre | / lista / provincia / @ id");
+$Provincia = UTF8_DECODE($resultado[$provinciaList]);
+
 
 
 try {

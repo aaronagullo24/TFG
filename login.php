@@ -16,17 +16,23 @@ if (isset($_REQUEST['nombre'])) {
     $consulta2 = $conexion->prepare($sql2);
     $consulta2->execute([":Correo" => $nombre]);
     $dependiente = $consulta2->fetch(PDO::FETCH_OBJ);
-    
+
 
     if ($consulta->rowCount() != 0) {
         if ($password == $voluntario->Password) {
-            $_SESSION['usuario'] = $voluntario->Nombre;
-            echo "Correcto Voluntario";
+            $_SESSION['usuario'] = $voluntario;
+            header("Location:inicio_voluntarios.php");
+        } else {
+            $mensaje = "error";
+            header("Location: login.php?mensaje=$mensaje");
         }
     } else if ($consulta2->rowCount() != 0) {
         if ($password == $dependiente->Password) {
             $_SESSION['usuario'] = $dependiente->Nombre;
-            echo "Correcto dependiente";
+            //echo "Correcto dependiente";
+        } else {
+            $mensaje = "error";
+            header("Location: login.php?mensaje=$mensaje");
         }
     } else {
         $mensaje = "error";
