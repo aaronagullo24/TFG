@@ -63,13 +63,14 @@ $nombre = $voluntario->Nombre;
 
     </section>
 
+    <!--Si tiene ya una solicitud no puede hacer mas -->
 
     <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
     <br>
-    <table class="table   table-hover order-table" id="tabla" >
+    <table class="table table-hover order-table" id="tabla" >
         <thead class="thead-dark">
             <tr>
-                <th style="width:120px; background-color: #5DACCD; color:#fff">Nombre</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Provincia</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Localidad</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Necesidad</th>
