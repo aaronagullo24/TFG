@@ -1,4 +1,4 @@
-let comprobar = Array("F", "F","F");
+let comprobar = Array("V", "V", "V");
 //Nombre password titulacion
 console.log(comprobar);
 window.addEventListener("load", function () {
@@ -7,13 +7,13 @@ window.addEventListener("load", function () {
 	let password = document.getElementById("password");
 	let titulacion = document.getElementById("titulacion");
 
-	password.addEventListener("blur",comprobar_password);
+	password.addEventListener("blur", comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
-	titulacion.addEventListener("blur",comprobar_titulacion);
+	titulacion.addEventListener("blur", comprobar_titulacion);
 
 
-    let boton = document.getElementById("boton");
-    boton.addEventListener("click", comprobar_boton_form);
+	let boton = document.getElementById("boton");
+	boton.addEventListener("click", comprobar_boton_form);
 
 
 });
@@ -63,20 +63,18 @@ function comprobar_boton_form() {
 function gParAlta() {
 	return "Nombre=" + document.getElementById('Nombre').value +
 		"&correo=" + document.getElementById('correo').value +
-		"&titulacion="+ document.getElementById('titulacion').value +
+		"&titulacion=" + document.getElementById('titulacion').value +
 		"&password=" + document.getElementById('password').value;
 }
 
 function cBAlta(resultado) {
 	let datos = JSON.parse(resultado);
-	
-	if (datos.alta == true) {	
-		
 
+	if (datos.alta == true) {
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
-		window.location.replace("usuario_correcto.html");
+		window.location.replace("usuario_editado.php");
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";

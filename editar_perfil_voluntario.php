@@ -2,7 +2,7 @@
 session_start();
 $voluntario = $_SESSION['usuario'];
 $nombre = $voluntario->Nombre; 
-var_dump($voluntario);
+
 ?>
 
 <html lang="es">
@@ -104,7 +104,7 @@ var_dump($voluntario);
                     </div>
 
                     <div class="form-group">
-                        <a href="editar_perfil_voluntario.php" type="button" class="btn btn-outline-success" id="boton">Editar Perfil</a>
+                        <a href="editar_perfil_voluntario.php" type="button" class="btn btn-outline-success" id="boton">Guardar Cambios</a>
                     </div>
 
                 </form>
