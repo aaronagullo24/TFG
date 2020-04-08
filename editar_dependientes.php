@@ -2,7 +2,7 @@
 include_once "conectar.php";
 $conexion = conectar();
 $operacion = [];
-
+session_start();
 
 $Nombre =  $_REQUEST['Nombre'];
 $Provincia = $_REQUEST['provinciaList'];
@@ -33,10 +33,10 @@ try {
 
     unset($_SESSION['usuario']);
 
-    $sql2 = "SELECT * FROM voluntario WHERE Correo=:Correo";
+    $sql2 = "SELECT * FROM dependiente WHERE Correo=:Correo";
     $consulta2 = $conexion->prepare($sql2);
     $consulta2->execute([":Correo" => $Correo]);
-    $voluntario = $consulta2->fetch(PDO::FETCH_OBJ);
+    $dependiente = $consulta2->fetch(PDO::FETCH_OBJ);
     $_SESSION['usuario'] = $dependiente;
 } catch (PDOException $e) {
     $operacion['alta'] = false;

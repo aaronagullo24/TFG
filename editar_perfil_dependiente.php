@@ -31,7 +31,7 @@ $nombre = $dependiente->Nombre;
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="inicio_dependientes.php">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
             <?=$dependiente->Nombre?> </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">

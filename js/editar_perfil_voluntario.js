@@ -74,7 +74,7 @@ function cBAlta(resultado) {
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
-		window.location.replace("usuario_editado.php");
+		window.location.replace("usuario_editado_voluntario.php");
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";

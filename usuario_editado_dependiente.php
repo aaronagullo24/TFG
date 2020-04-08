@@ -1,7 +1,7 @@
 <?php
 session_start();
-$dependiente = $_SESSION['usuario'];
-$nombre = $dependiente->Nombre;
+$voluntario = $_SESSION['usuario'];
+$nombre = $voluntario->Nombre;
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +23,7 @@ $nombre = $dependiente->Nombre;
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="inicio_dependientes
-        .php">
+        <a class="navbar-brand" href="incio_dependientes.php">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
             <?php
             echo $nombre;
@@ -42,14 +41,9 @@ $nombre = $dependiente->Nombre;
             </div>
         </div>
     </nav>
-    <div align="center">
-        <img src="resources/logo.png" alt="Logo OLDVER" height="30%" width="30%" style="margin-top: 2%;">
-        <br>
-        <br>
-        <br>
-        <p class="lead text-center mb-5">En esta pagina recivira la ayuda que necesita.
-        </p>
-    </div>
+    <br>
+    <br>
+    <div class="alert alert-success">¡USUARIO EDITADO CORRECTAMENTE!</div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
