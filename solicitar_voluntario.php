@@ -23,11 +23,6 @@ $nombre = $voluntario->Nombre;
     <script src="js/mi_libreriaAjax.js"></script>
     <script src="js/AjaxCode.js"></script>
     <script src="js/buscar.js"></script>
-    
-    
-   
-
-
 </head>
 
 <body style="background-color: aquamarine;">
@@ -67,7 +62,7 @@ $nombre = $voluntario->Nombre;
 
     <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
     <br>
-    <table class="table table-hover order-table" id="tabla" >
+    <table class="table table-hover order-table" id="tabla">
         <thead class="thead-dark">
             <tr>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
@@ -80,21 +75,40 @@ $nombre = $voluntario->Nombre;
         <tbody>
             <?php
 
-            $sql = "SELECT * FROM dependiente where Solicitud IS NULL";
+            $sql = "SELECT * FROM dependiente where voluntario IS NULL";
             $consulta = $conexion->prepare($sql);
             $consulta->execute();
 
 
-            while ($voluntario = $consulta->fetch(PDO::FETCH_OBJ)) {
+            while ($dependiente = $consulta->fetch(PDO::FETCH_OBJ)) {
             ?>
 
                 <tr>
 
-                    <td><?php echo $voluntario->Nombre ?></td>
-                    <td><?php echo $voluntario->Provincia ?></td>
-                    <td><?php echo $voluntario->Localidad ?></td>
-                    <td><?php echo $voluntario->Necesidad ?></td>
-                    <td><a>Contactar</a></td>
+                    <td><?php echo $dependiente->Nombre ?></td>
+                    <td><?php echo $dependiente->Provincia ?></td>
+                    <td><?php echo $dependiente->Localidad ?></td>
+                    <td><?php echo $dependiente->Necesidad ?></td>
+                    <td>
+                        <?php
+
+                        $sql1 = "SELECT * FROM solicitudes where voluntario=:voluntario and dependiente=:dependiente";
+                        $consulta2 = $conexion->prepare($sql1);
+                        $consulta2->execute([":voluntario" => $voluntario->Numero_socio, ":dependiente" => $dependiente->Numero_socio]);
+                        $dependiente1 = $consulta2->fetch(PDO::FETCH_OBJ);
+
+                        if ($consulta2->rowCount() != 0) {
+                            echo "Ya tiene una solicitud";
+                        } else {
+
+                        ?>
+                            <form action="boton_solicitud_voluntario.php" method="post">
+                                <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
+                                <input type="submit" class="btn btn-primary" value="Enviar Solicitud">
+                            </form>
+                        <?php } ?>
+                    </td>
+
                 </tr>
 
             <?php } ?>
