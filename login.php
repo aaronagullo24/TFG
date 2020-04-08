@@ -28,8 +28,8 @@ if (isset($_REQUEST['nombre'])) {
         }
     } else if ($consulta2->rowCount() != 0) {
         if ($password == $dependiente->Password) {
-            $_SESSION['usuario'] = $dependiente->Nombre;
-            //echo "Correcto dependiente";
+            $_SESSION['usuario'] = $dependiente;
+            header("Location:inicio_dependientes.php");
         } else {
             $mensaje = "error";
             header("Location: login.php?mensaje=$mensaje");
