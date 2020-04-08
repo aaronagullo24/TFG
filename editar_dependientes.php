@@ -3,6 +3,9 @@ include_once "conectar.php";
 $conexion = conectar();
 $operacion = [];
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 
 $Nombre =  $_REQUEST['Nombre'];
 $Provincia = $_REQUEST['provinciaList'];

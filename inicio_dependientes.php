@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 $dependiente = $_SESSION['usuario'];
 $nombre = $dependiente->Nombre;
 ?>

@@ -2,6 +2,9 @@
 include_once "conectar.php";
 $conexion = conectar();
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 $dependiente = $_SESSION['usuario'];
 $nombre = $dependiente->Nombre;
 ?>
@@ -106,3 +109,4 @@ $nombre = $dependiente->Nombre;
 </body>
 
 </html>
+<?php
