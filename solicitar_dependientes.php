@@ -53,59 +53,72 @@ $nombre = $dependiente->Nombre;
         <p class="lead text-center mb-5">Aqui puedes ver todos los dependientes que desean ayudarle con sus problemas </p>
 
     </section>
-    <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
-    <br>
-    <table class="table table-hover order-table" id="tabla">
-        <thead class="thead-dark">
-            <tr>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Aceptar</th>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Denegar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $Numero_dependiente = $dependiente->Numero_socio;
+    <?php
+    $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";
+    $consulta = $conexion->prepare($sql);
+    $consulta->execute(["id_dependientes" => $dependiente->Numero_socio]);
+    $consulta_dependientes = $consulta->fetch(PDO::FETCH_OBJ);
 
-            $sql = "SELECT * FROM solicitudes where dependiente=:dependiente";
-            $consulta = $conexion->prepare($sql);
-            $consulta->execute([":dependiente" => $Numero_dependiente]);
-
-
-
-            while ($dependiente_consulta = $consulta->fetch(PDO::FETCH_OBJ)) {
-
-                $sql1 = "SELECT * FROM voluntario where Numero_socio=:Numero_socio";
-                $consulta2 = $conexion->prepare($sql1);
-                $consulta2->execute([":Numero_socio" => $dependiente_consulta->voluntario]);
-                $voluntario = $consulta2->fetch(PDO::FETCH_OBJ);
-            ?>
-
+    if ($consulta->rowCount() == 1) {
+    ?>
+        <div class="alert alert-success">¡usted ya tiene un voluntario asignado,ENHORABUENA!</div>
+    <?php
+    } else {
+    ?>
+        <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
+        <br>
+        <table class="table table-hover order-table" id="tabla">
+            <thead class="thead-dark">
                 <tr>
-
-                    <td><?php echo $voluntario->Nombre ?></td>
-                    <td><?php echo $voluntario->Titulacion ?></td>
-                    <td>
-
-                        <form action="boton_solicitud_voluntario.php" method="post">
-                            <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
-                            <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
-                            <input type="submit" class="btn btn-success" value="Aceptar Solicitud">
-                        </form>
-                    </td>
-
-                    <td>
-                        <form action="eliminar_solicitud.php" method="post">
-                            <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
-                            <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
-                            <input type="submit" class="btn btn-danger" value="Denegar Solicitud">
-                        </form>
-                    </td>
-                <?php } ?>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Aceptar</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Denegar</th>
                 </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                $Numero_dependiente = $dependiente->Numero_socio;
+
+                $sql = "SELECT * FROM solicitudes where dependiente=:dependiente";
+                $consulta = $conexion->prepare($sql);
+                $consulta->execute([":dependiente" => $Numero_dependiente]);
+
+
+
+                while ($dependiente_consulta = $consulta->fetch(PDO::FETCH_OBJ)) {
+
+                    $sql1 = "SELECT * FROM voluntario where Numero_socio=:Numero_socio";
+                    $consulta2 = $conexion->prepare($sql1);
+                    $consulta2->execute([":Numero_socio" => $dependiente_consulta->voluntario]);
+                    $voluntario = $consulta2->fetch(PDO::FETCH_OBJ);
+                ?>
+
+                    <tr>
+
+                        <td><?php echo $voluntario->Nombre ?></td>
+                        <td><?php echo $voluntario->Titulacion ?></td>
+                        <td>
+
+                            <form action="aceptar_solicitud.php" method="post">
+                                <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
+                                <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
+                                <input type="submit" class="btn btn-success" value="Aceptar Solicitud">
+                            </form>
+                        </td>
+
+                        <td>
+                            <form action="eliminar_solicitud.php" method="post">
+                                <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
+                                <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
+                                <input type="submit" class="btn btn-danger" value="Denegar Solicitud">
+                            </form>
+                        </td>
+                    <?php } ?>
+                    </tr>
+            </tbody>
+        </table>
+    <?php } ?>
 </body>
 
 </html>

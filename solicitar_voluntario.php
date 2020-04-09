@@ -60,8 +60,19 @@ $nombre = $voluntario->Nombre;
             todos estaran encantados de tenerte </p>
 
     </section>
+    <?php
+    $sql = "SELECT * FROM parejas WHERE id_voluntario=:id_voluntario";
+    $consulta = $conexion->prepare($sql);
+    $consulta->execute(["id_voluntario" => $voluntario->Numero_socio]);
+    $consulta_dependientes = $consulta->fetch(PDO::FETCH_OBJ);
 
-    <!--Si tiene ya una solicitud no puede hacer mas -->
+    if ($consulta->rowCount() != 0) {
+    ?>
+        <div class="alert alert-success">¡usted ya una persona a la que cuidar, MUCHAS GRACIAS!</div>
+    <?php
+    } else {
+
+ ?>
 
     <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
     <br>
@@ -115,3 +126,9 @@ $nombre = $voluntario->Nombre;
                 </tr>
 
             <?php } ?>
+            
+        </tbody>
+    </table>
+    <?php } ?>
+</body>
+</html>
