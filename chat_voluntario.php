@@ -34,11 +34,13 @@ $nombre = $dependiente->Nombre;
                     document.getElementById('chat').innerHTML = req.responseText;
                 }
             }
-            req.open('GET','chat.php',true);
+            req.open('GET', 'chat.php', true);
             req.send();
         }
 
-        setInterval(function(){ajax();},1000);
+        setInterval(function() {
+            ajax();
+        }, 1000);
     </script>
 
 
@@ -69,21 +71,20 @@ $nombre = $dependiente->Nombre;
         </div>
     </nav>
     <br>
-    <br>
-
     <div class="container">
         <div id="caja-chat">
             <div id="chat">
 
             </div>
         </div>
+        <br>
         <form method="POST" action="chat_voluntario.php">
 
             <!-- <input type="text" name="nombre" placeholder="nombre"> -->
             <input type="hidden" name="id" id="id" value="<?php echo $dependiente->Numero_socio ?>">
             <input type="hidden" name="nombre" id="nombre" value="<?php echo $dependiente->Nombre ?>">
             <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
-            <input type="submit" name="enviar" class="btn btn-success" value="Enviar">
+            <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
         </form>
         <?php
 
@@ -93,10 +94,10 @@ $nombre = $dependiente->Nombre;
             $mensaje = $_REQUEST['mensaje'];
 
             try {
-                $sql = "INSERT INTO chat (id,Nombre,mensaje,fecha) value (:id,:Nombre,:mensaje,:fecha)";
+                $sql = "INSERT INTO chat (id,Nombre,mensaje) value (:id,:Nombre,:mensaje)";
                 $consulta = $conexion->prepare($sql);
                 $consulta->execute([
-                    ":id" => $id, ":Nombre" => $nombre, ":mensaje" => $mensaje, ":fecha" => date('l jS \of F Y h:i:s A')
+                    ":id" => $id, ":Nombre" => $nombre, ":mensaje" => $mensaje
                 ]);
             } catch (PDOException $e) {
             }

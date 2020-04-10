@@ -3,13 +3,14 @@
     margin: 0;
     border: 0;
 }
-
-
+.container{
+    height: 2%;
+}
 
 #caja-chat {
     width: 100%;
-    height: 500px;
-    overflow: scroll;
+    height: 400px;
+    overflow-x: auto;
 }
 
 #datos-chat {
@@ -33,8 +34,7 @@ input [type='text'] {
 }
 
 input [type='submit'] {
-    width: 100%;
-    height: 40px;
+    
     border: 1px solid gray;
     border-radius: 5px;
     -moz-border-radius: 5px;
