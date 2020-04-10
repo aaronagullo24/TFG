@@ -1,9 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
-$dependiente = $_SESSION['usuario'];
+$dependiente = $_SESSION['dependiente'];
 $nombre = $dependiente->Nombre;
 ?>
 
@@ -40,6 +40,7 @@ $nombre = $dependiente->Nombre;
                 <a class="nav-item nav-link " href="solicitar_dependientes.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
                 <a class="nav-item nav-link " href="calendario.php">Calendario</a>
+                <a class="nav-item nav-link " href="su_voluntario.php">Voluntario</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
 

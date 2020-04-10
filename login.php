@@ -28,7 +28,7 @@ if (isset($_REQUEST['nombre'])) {
         }
     } else if ($consulta2->rowCount() != 0) {
         if ($password == $dependiente->Password) {
-            $_SESSION['usuario'] = $dependiente;
+            $_SESSION['dependiente'] = $dependiente;
             header("Location:inicio_dependientes.php");
         } else {
             $mensaje = "error";

@@ -3,7 +3,7 @@ include_once "conectar.php";
 $conexion = conectar();
 $operacion = [];
 session_start();
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
 
@@ -40,7 +40,7 @@ try {
     $consulta2 = $conexion->prepare($sql2);
     $consulta2->execute([":Correo" => $Correo]);
     $dependiente = $consulta2->fetch(PDO::FETCH_OBJ);
-    $_SESSION['usuario'] = $dependiente;
+    $_SESSION['dependiente'] = $dependiente;
 } catch (PDOException $e) {
     $operacion['alta'] = false;
 }
