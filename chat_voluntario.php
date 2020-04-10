@@ -51,7 +51,7 @@ $nombre = $dependiente->Nombre;
     </nav>
     <br>
     <br>
-
+    
 
 </body>
 
