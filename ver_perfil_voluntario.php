@@ -102,11 +102,6 @@ $nombre = $voluntario->Nombre;
         </div>
 
     </div>
-
-
-
-
-
 </body>
 
 </html>
