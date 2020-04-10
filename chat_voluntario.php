@@ -36,19 +36,23 @@ $nombre = $dependiente->Nombre;
         </button>
         <a class="navbar-brand" href="inicio_dependientes.php">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?=$dependiente->Nombre?> </a>
+            <?= $dependiente->Nombre ?> </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <div class="navbar-nav mr-auto ml-auto text-center">
                 <a class="nav-item nav-link " href="solicitar_dependientes.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
                 <a class="nav-item nav-link " href="calendario.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_voluntario.php">Char Con Voluntario</a>
+                <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
                 <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
             </div>
         </div>
     </nav>
+    <br>
+    <br>
 
-    <?php 
-     
+
+</body>
+
+<?php
