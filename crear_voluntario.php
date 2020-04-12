@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['administrador'])) {
+    header("Location: login.php");
+}
+$administrador = $_SESSION['administrador'];
+?>
+
 <html lang="es">
 
 <head>
@@ -14,35 +22,69 @@
     <script src="js/AjaxCode.js"></script>
     <script src="js/admin_voluntario.js"></script>
     <script src="js/mi_libreriaAjax.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
+
 <body style="background-color: aquamarine;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="inicio_administrador.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap"> Administrador 
-            <?php
-            echo $administrador->nombre;
-            ?>
-            </p> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="" >Crear Dendiente</a>
-                <a class="nav-item nav-link " href="crear_voluntario.php" >Crear Voluntario</a>
-                <a class="nav-item nav-link" href="">Modificar Usuario</a>
-                <a class="nav-item nav-link " href="">Modificar Chat</a>
-                <a class="nav-item nav-link " href="">Modificar Parejas</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
 
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="inicio_administrador.php">
+                <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap"> Administrador
+                <?php
+                echo $administrador->nombre;
+                ?>
+                </p> </a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Crear
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="crear_voluntario.php">Crear Voluntario</a></li>
+                        <li><a href="crear_dependiente.php">Crear Dependiente</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Modificar
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="modificar_voluntario.php">Modificar Voluntario</a></li>
+                        <li><a href="modificar_dependiente.php">Modificar Dependiente</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Chat</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Parejas</a></li>
+            </ul>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+
+            <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
+        </div>
         </div>
     </nav>
-<div class="container">
+    <div class="container">
         <br>
 
         <hr>
@@ -56,7 +98,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input id="Nombre" name="Nombre"  class="form-control" placeholder="Nombre completo" type="text">
+                        <input id="Nombre" name="Nombre" class="form-control" placeholder="Nombre completo" type="text">
                         <div id="nombre"></div>
                     </div>
 
@@ -66,7 +108,7 @@
                         </div>
                         <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email">
                         <div id="Correo"></div>
-                    </div> 
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
@@ -77,28 +119,28 @@
                             <option>Neurología. </option>
                             <option>Enfermería. </option>
                             <option>Fisioterapia. </option>
-                            <option>Cuidado y asistencia al adulto.  </option>
+                            <option>Cuidado y asistencia al adulto. </option>
                             <option>Educación social. </option>
-                            <option>Trabajo social.  </option>
+                            <option>Trabajo social. </option>
                             <option>Nutrición y dietética. </option>
-                            <option>Educación para adultos.  </option>
-                            <option>Otros...  </option>
-                            <option>Ninguno  </option>
+                            <option>Educación para adultos. </option>
+                            <option>Otros... </option>
+                            <option>Ninguno </option>
 
                         </select>
                         <div id="Titulacion"></div>
-                    </div> 
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input class="form-control" id="password" placeholder="Create password" type="password">
                         <div id="Password"></div>
-                    </div> 
-                   
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" id="boton"> Crear cuenta </button>
-                    </div> 
+                    </div>
 
                 </form>
             </article>
