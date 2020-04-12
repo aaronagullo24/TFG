@@ -5,38 +5,21 @@ if (isset($_REQUEST['nombre'])) {
     $nombre = $_REQUEST['nombre'];
     $password = $_REQUEST['password'];
     $conexion = conectar();
-    //seleccionarias el campo password
-    $sql = "SELECT * FROM voluntario WHERE Correo=:Correo";
+
+
+    $sql = "SELECT * FROM administradores WHERE Correo=:Correo";
     $consulta = $conexion->prepare($sql);
     $consulta->execute([":Correo" => $nombre]);
-    $voluntario = $consulta->fetch(PDO::FETCH_OBJ);
+    $administrador = $consulta->fetch(PDO::FETCH_OBJ);
 
 
-    $sql2 = "SELECT * FROM dependiente WHERE Correo=:Correo";
-    $consulta2 = $conexion->prepare($sql2);
-    $consulta2->execute([":Correo" => $nombre]);
-    $dependiente = $consulta2->fetch(PDO::FETCH_OBJ);
 
-
-    if ($consulta->rowCount() != 0) {
-        if ($password == $voluntario->Password) {
-            $_SESSION['usuario'] = $voluntario;
-            header("Location:inicio_voluntarios.php");
-        } else {
-            $mensaje = "error";
-            header("Location: login.php?mensaje=$mensaje");
-        }
-    } else if ($consulta2->rowCount() != 0) {
-        if ($password == $dependiente->Password) {
-            $_SESSION['dependiente'] = $dependiente;
-            header("Location:inicio_dependientes.php");
-        } else {
-            $mensaje = "error";
-            header("Location: login.php?mensaje=$mensaje");
-        }
+    if ($password == $administrador->password) {
+        $_SESSION['administrador'] = $administrador;
+        header("Location:inicio_administrador.php");
     } else {
         $mensaje = "error";
-        header("Location: login.php?mensaje=$mensaje");
+        header("Location: login_admin.php?mensaje=$mensaje");
     }
 }
 ?>
@@ -66,18 +49,7 @@ if (isset($_REQUEST['nombre'])) {
         <a class="navbar-brand" href="index.html">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
             Oldver </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="index.html">Inicio</a>
-                <a class="nav-item nav-link" href="nosotros.html">Nosotros</a>
-                <a class="nav-item nav-link " href="servicio.html">Servicios</a>
-                <a class="nav-item nav-link" href="contactar.html">Contacto</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-                <a href="elejis_tipo_usuario.html" class="btn btn-outline-primary mr-2">Nuevo Usuario</a>
-                <a href="login.php" class="btn btn-outline-danger">Entrar</a>
-            </div>
-        </div>
+
     </nav>
 
     <div class="container">
@@ -85,7 +57,7 @@ if (isset($_REQUEST['nombre'])) {
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card card-signin my-5">
                     <div class="card-body">
-                        <h5 class="card-title text-center">ACCESO CLIENTES</h5>
+                        <h5 class="card-title text-center">ACCESO ADMINISTRADORES</h5>
                         <form class="form-signin" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                             <div class="form-label-group">
 
