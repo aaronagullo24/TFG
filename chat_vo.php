@@ -2,19 +2,18 @@
 session_start();
 include_once "conectar.php";
 $conexion = conectar();
-$dependiente = $_SESSION['dependiente'];
-$nombre = $dependiente->Nombre;
+$voluntario = $_SESSION['usuario'];
 
 
-$sql1 = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes;";
+$sql1 = "SELECT * FROM parejas WHERE id_voluntario=:id_voluntario;";
 $consulta1 = $conexion->prepare($sql1);
-$consulta1->execute([":id_dependientes" => $dependiente->Numero_socio]);
+$consulta1->execute([":id_voluntario" => $voluntario->Numero_socio]);
 $id = $consulta1->fetch(PDO::FETCH_OBJ);
 
 $sql = "SELECT * FROM chat WHERE id=:id_dependiente OR id=:id_voluntario 
 ORDER BY fecha ASC;";
 $consulta = $conexion->prepare($sql);
-$consulta->execute([":id_dependiente" => $dependiente->Numero_socio, ":id_voluntario" => $id->id_voluntario]);
+$consulta->execute([":id_dependiente" => $id->id_dependientes, ":id_voluntario" => $id->id_voluntario]);
 while ($voluntario1 = $consulta->fetch(PDO::FETCH_OBJ)) {
 
 ?>
