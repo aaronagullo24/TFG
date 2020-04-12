@@ -94,8 +94,8 @@ $nombre = $voluntario->Nombre;
             <form method="POST" action="chat_dependiente.php">
 
                 <!-- <input type="text" name="nombre" placeholder="nombre"> -->
-                <input type="hidden" name="id" id="id" value="<?php echo $dependiente->Numero_socio ?>">
-                <input type="hidden" name="nombre" id="nombre" value="<?php echo $dependiente->Nombre ?>">
+                <input type="hidden" name="id" id="id" value="<?php echo $voluntario->Numero_socio ?>">
+                <input type="hidden" name="nombre" id="nombre" value="<?php echo $voluntario->Nombre ?>">
                 <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
                 <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
             </form>

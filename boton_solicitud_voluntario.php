@@ -17,6 +17,7 @@ try {
         ":voluntario" => $voluntario->Numero_socio,
         ":dependiente" => $Numero_Socio_dependiente
     ]);
+    header("Location:solicitar_voluntario.php");
 } catch (PDOException $e) {
     echo $e->getMessage();
 }

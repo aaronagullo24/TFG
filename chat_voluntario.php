@@ -71,41 +71,54 @@ $nombre = $dependiente->Nombre;
         </div>
     </nav>
     <br>
-    <div class="container">
-        <div id="caja-chat">
-            <div id="chat">
 
+    <?php
+    $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";
+    $consulta = $conexion->prepare($sql);
+    $consulta->execute(["id_dependientes" => $dependiente->Numero_socio]);
+    $consulta_dependientes = $consulta->fetch(PDO::FETCH_OBJ);
+
+    if ($consulta->rowCount() == 0) {
+    ?>
+        <div class="alert alert-success">¡usted aun no tiene un ayudante asignado, vaya a la pestaña de solicitudes!</div>
+    <?php
+    } else {
+    ?>
+        <div class="container">
+            <div id="caja-chat">
+                <div id="chat">
+
+                </div>
             </div>
-        </div>
-        <br>
-        <form method="POST" action="chat_voluntario.php">
+            <br>
+            <form method="POST" action="chat_voluntario.php">
 
-            <!-- <input type="text" name="nombre" placeholder="nombre"> -->
-            <input type="hidden" name="id" id="id" value="<?php echo $dependiente->Numero_socio ?>">
-            <input type="hidden" name="nombre" id="nombre" value="<?php echo $dependiente->Nombre ?>">
-            <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
-            <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
-        </form>
-        <?php
+                <!-- <input type="text" name="nombre" placeholder="nombre"> -->
+                <input type="hidden" name="id" id="id" value="<?php echo $dependiente->Numero_socio ?>">
+                <input type="hidden" name="nombre" id="nombre" value="<?php echo $dependiente->Nombre ?>">
+                <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
+                <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
+            </form>
+            <?php
 
-        if (isset($_REQUEST['enviar'])) {
-            $nombre = $_REQUEST['nombre'];
-            $id = $_REQUEST['id'];
-            $mensaje = $_REQUEST['mensaje'];
+            if (isset($_REQUEST['enviar'])) {
+                $nombre = $_REQUEST['nombre'];
+                $id = $_REQUEST['id'];
+                $mensaje = $_REQUEST['mensaje'];
 
-            try {
-                $sql = "INSERT INTO chat (id,Nombre,mensaje) value (:id,:Nombre,:mensaje)";
-                $consulta = $conexion->prepare($sql);
-                $consulta->execute([
-                    ":id" => $id, ":Nombre" => $nombre, ":mensaje" => $mensaje
-                ]);
-            } catch (PDOException $e) {
+                try {
+                    $sql = "INSERT INTO chat (id,Nombre,mensaje) value (:id,:Nombre,:mensaje)";
+                    $consulta = $conexion->prepare($sql);
+                    $consulta->execute([
+                        ":id" => $id, ":Nombre" => $nombre, ":mensaje" => $mensaje
+                    ]);
+                } catch (PDOException $e) {
+                }
             }
-        }
-        ?>
+            ?>
 
-    </div>
-
+        </div>
+    <?php } ?>
 </body>
 
 <?php
