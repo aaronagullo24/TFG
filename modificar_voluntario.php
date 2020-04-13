@@ -93,6 +93,7 @@ $administrador = $_SESSION['administrador'];
     ?>
     <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
     <br>
+    <br>
     <table class="table table-hover order-table" id="tabla">
         <thead class="thead-dark">
             <tr>
@@ -116,8 +117,8 @@ $administrador = $_SESSION['administrador'];
                     <td><?php echo $voluntario->Titulacion ?></td>
                     <td>
 
-                        <form action="modificar_voluntario.php" method="post">
-                            <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
+                        <form action="modificar_voluntarios_admin.php" method="post">
+                            <input type="hidden" id="voluntario" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
                             <input type="submit" class="btn btn-success" value="Modificar">
                         </form>
                     </td>
