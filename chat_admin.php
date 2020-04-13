@@ -4,7 +4,9 @@ if (!isset($_SESSION['administrador'])) {
     header("Location: login.php");
 }
 $administrador = $_SESSION['administrador'];
+include_once "conectar.php";
 
+$conexion = conectar();
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +67,7 @@ $administrador = $_SESSION['administrador'];
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="chat_admin.php">Chat</a></li>
+                <li><a href="#">Chat</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="#">Parejas</a></li>
@@ -77,5 +79,57 @@ $administrador = $_SESSION['administrador'];
         </div>
         </div>
     </nav>
-    <?php
-    echo "hoola" ?>
+
+    <table class="table table-hover order-table" id="tabla">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre Voluntario</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Id del Voluntario</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre Dependiente</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Id del dependiente</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Interactuar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+               
+
+                $sql = "SELECT * FROM parejas";
+                $consulta = $conexion->prepare($sql);
+                $consulta->execute();
+
+
+
+                while ($parejas = $consulta->fetch(PDO::FETCH_OBJ)) {
+
+                    $sql1 = "SELECT * FROM voluntario where Numero_socio=:Numero_socio";
+                    $consulta2 = $conexion->prepare($sql1);
+                    $consulta2->execute([":Numero_socio" => $parejas->id_voluntario]);
+                    $voluntario = $consulta2->fetch(PDO::FETCH_OBJ);
+
+                    $sql2 = "SELECT * FROM dependiente where Numero_socio=:Numero_socio";
+                    $consulta3 = $conexion->prepare($sql2);
+                    $consulta3->execute([":Numero_socio" => $parejas->id_dependientes]);
+                    $dependiente = $consulta3->fetch(PDO::FETCH_OBJ);
+                ?>
+
+                    <tr>
+
+                        <td><?php echo $voluntario->Nombre ?></td>
+                        <td><?php echo $voluntario->Numero_socio ?></td>
+                        <td><?php echo $dependiente->Nombre ?></td>
+                        <td><?php echo $dependiente->Numero_socio ?></td>
+                        <td>
+
+                            <form action="aceptar_solicitud.php" method="post">
+                                <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
+                                <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
+                                <input type="submit" class="btn btn-success" value="Interactuar">
+                            </form>
+                        </td>
+
+                    <?php } ?>
+                    </tr>
+            </tbody>
+        </table>
+ 
