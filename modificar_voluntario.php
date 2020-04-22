@@ -70,10 +70,10 @@ $administrador = $_SESSION['administrador'];
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="#">Chat</a></li>
+                <li><a href="chat_admin.php">Chat</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="#">Parejas</a></li>
+                <li><a href="parejas.php">Parejas</a></li>
             </ul>
         </div>
         <div class="d-flex flex-row justify-content-center">
@@ -145,7 +145,7 @@ $administrador = $_SESSION['administrador'];
                         <?php
                         } else {
                         ?>
-                            <div class="alert alert-warning alert-dismissable"> 
+                            <div class="alert alert-warning alert-dismissable">
                                 El voluntario tiene a un dependiente a su cargo, debes deshacer la pareja
                             </div>
                         <?php

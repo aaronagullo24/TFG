@@ -72,10 +72,10 @@ $administrador = $_SESSION['administrador'];
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="#">Chat</a></li>
+                <li><a href="chat_admin.php">Chat</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="#">Parejas</a></li>
+                <li><a href="parejas.php">Parejas</a></li>
             </ul>
         </div>
         <div class="d-flex flex-row justify-content-center">
