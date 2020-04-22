@@ -27,4 +27,7 @@ include_once "cabecera.php";
 <body style="background-color: aquamarine;">
     <?php
     administrador($administrador);
-    echo "hoola" ?>
+     ?>
+
+</body>
+</html>
