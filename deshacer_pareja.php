@@ -13,9 +13,9 @@ $sentencia = $conexion->prepare("DELETE FROM chat WHERE id=:id OR id=:id_v");
 $resultado = $sentencia->execute(["id" => $id_dependiente, ":id_v" => $id_voluntario]);
 
 try {
-    $sentencia = $conexion->prepare("UPDATE dependiente SET voluntario=:voluntario");
+    $sentencia = $conexion->prepare("UPDATE dependiente SET voluntario=:voluntario WHERE Numero_socio=:Numero_socio");
     $resultado = $sentencia->execute([
-        ":voluntario" => NULL
+        ":voluntario" => NULL,":Numero_socio"=>$id_dependiente
     ]);
 } catch (PDOException $e) {
     $operacion['alta'] = false;
