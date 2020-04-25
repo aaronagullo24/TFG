@@ -16,10 +16,14 @@ $consulta->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Oldver</title>
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="css/bootstrap.css">
+    
+    
+   
 
     <link rel='stylesheet' href="fullcalendar/fullcalendar.css" />
     <script src="fullcalendar/lib/jquery.min.js"></script>
@@ -30,7 +34,8 @@ $consulta->execute();
     <script>
         $(document).ready(function() {
             $('#calendar').fullCalendar({
-               locale:'es',
+                id:'calendar',
+                locale: 'es',
                 events: [
                     <?php
                     while ($calendario = $consulta->fetch(PDO::FETCH_OBJ)) {
@@ -49,8 +54,9 @@ $consulta->execute();
                     }
                     ?>
                 ],
-                dayClick:function(date,event){
-                    alert(date.format());
+                dayClick: function(date, event) {
+                    $("#exampleModal").modal("show");
+                    $("#fecha").val(date.format());
                 }
             })
         });
@@ -84,13 +90,54 @@ $consulta->execute();
         </div>
     </nav>
 
-    <div class="container">
-    <div id="calendar">
+    <div class="row">
+        <div class="col-md-3"></div>
 
+        <div class="col-md-6">
+            <div id="calendar">
+
+            </div>
+        </div>
+
+        <div class="col-md-3"></div>
     </div>
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="">Fecha</label>
+                    <input type="text" id="fecha"/>
+                    <br>
+                    <label for="">Evento</label>
+                    <input type="text">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
