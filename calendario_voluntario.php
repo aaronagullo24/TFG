@@ -1,11 +1,16 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
+$voluntario = $_SESSION['usuario'];
+$nombre = $voluntario->Nombre;
 include_once "conectar.php";
 $conexion = conectar();
 
-$sql = "SELECT * FROM calendarios";
+$sql = "SELECT * FROM calendarios WHERE id_voluntario=:id_voluntario";
 $consulta = $conexion->prepare($sql);
-$consulta->execute();
+$consulta->execute([':id_voluntario'=>$voluntario->Numero_socio]);
 
 
 ?>
@@ -21,9 +26,9 @@ $consulta->execute();
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="css/bootstrap.css">
-    
-    
-   
+
+
+
 
     <link rel='stylesheet' href="fullcalendar/fullcalendar.css" />
     <script src="fullcalendar/lib/jquery.min.js"></script>
@@ -34,7 +39,7 @@ $consulta->execute();
     <script>
         $(document).ready(function() {
             $('#calendar').fullCalendar({
-                id:'calendar',
+                id: 'calendar',
                 locale: 'es',
                 events: [
                     <?php
@@ -45,7 +50,6 @@ $consulta->execute();
                             title: "<?php echo $calendario->title ?>",
                             start: "<?php echo $calendario->start ?>",
                             end: "<?php echo $calendario->end ?>",
-                            url: "<?php echo $calendario->url ?>",
                             color: " <?php echo $calendario->color ?>",
                             editable: "<?php echo $calendario->editable ?>"
 
@@ -113,30 +117,41 @@ $consulta->execute();
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Planes: </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="">Fecha</label>
-                    <input type="text" id="fecha"/>
-                    <br>
-                    <label for="">Evento</label>
-                    <input type="text">
+                    <form action="nuevo_evento.php" method="POST">
+                        <label for="">Fecha</label>
+                        <input type="text" id="fecha" name="fecha" />
+                        <br>
+                        <label for="">Evento</label>
+                        <input type="text" id="evento" name="evento">
+                        <br>
+                        <label for="">Hora de inicio:</label>
+                        <input type="time" id="inicio" name="inicio">
+                        <br>
+                        <label for="">Hora de finalizacion:</label>
+                        <input type="time" id="finalizacion" name="finalizacion">
+                        <br>
+                        <label for="">Color del evento:</label>
+                        <input type="color" id="color" name="color">
 
+                        <input type="hidden" value="<?php echo $voluntario->Numero_socio?>" name="voluntario" id="voluntario">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 
