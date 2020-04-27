@@ -26,10 +26,6 @@ $consulta->execute([':id_voluntario'=>$voluntario->Numero_socio]);
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="css/bootstrap.css">
-
-
-
-
     <link rel='stylesheet' href="fullcalendar/fullcalendar.css" />
     <script src="fullcalendar/lib/jquery.min.js"></script>
     <script src="fullcalendar/lib/moment.min.js"></script>
@@ -84,16 +80,15 @@ $consulta->execute([':id_voluntario'=>$voluntario->Numero_socio]);
             <div class="navbar-nav mr-auto ml-auto text-center">
                 <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario.php">Calendario</a>
+                <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_dependiente.php">chat</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
-
                 <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
             </div>
         </div>
     </nav>
-
+<br>
     <div class="row">
         <div class="col-md-3"></div>
 
@@ -105,12 +100,6 @@ $consulta->execute([':id_voluntario'=>$voluntario->Numero_socio]);
 
         <div class="col-md-3"></div>
     </div>
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

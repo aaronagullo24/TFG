@@ -48,7 +48,7 @@ $nombre = $voluntario->Nombre;
 
 </head>
 
-<body style="background-color: aquamarine;" onload="ajax();">
+<body style="background-color: #81F781;" onload="ajax();">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -62,7 +62,7 @@ $nombre = $voluntario->Nombre;
             <div class="navbar-nav mr-auto ml-auto text-center">
                 <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario.php">Calendario</a>
+                <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
@@ -86,18 +86,16 @@ $nombre = $voluntario->Nombre;
     ?>
         <div class="container">
             <div id="caja-chat">
-                <div id="chat">
+                <div id="chat" style="background-color: greenyellow;">
 
                 </div>
             </div>
             <br>
             <form method="POST" action="chat_dependiente.php">
-
-                <!-- <input type="text" name="nombre" placeholder="nombre"> -->
                 <input type="hidden" name="id" id="id" value="<?php echo $voluntario->Numero_socio ?>">
                 <input type="hidden" name="nombre" id="nombre" value="<?php echo $voluntario->Nombre ?>">
                 <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
-                <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
+                <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-primary" value="Enviar">
             </form>
             <?php
 
