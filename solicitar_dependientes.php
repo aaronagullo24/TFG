@@ -39,7 +39,7 @@ $nombre = $dependiente->Nombre;
             <div class="navbar-nav mr-auto ml-auto text-center">
                 <a class="nav-item nav-link " href="solicitar_dependientes.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario.php">Calendario</a>
+                <a class="nav-item nav-link " href="calendario_dependiente.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
