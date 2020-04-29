@@ -96,7 +96,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success mt-3">El chat se activara automaticamente cuando tenga un dependiente al que cuidar</div>
+        <div class="alert alert-success mt-3">El calendario se activara automaticamente cuando tenga un dependiente al que cuidar</div>
     <?php
     } else {
     ?>
