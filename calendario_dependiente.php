@@ -90,61 +90,73 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
             </div>
         </div>
     </nav>
+    <?php
+    $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";
+    $consulta = $conexion->prepare($sql);
+    $consulta->execute(["id_dependientes" => $dependiente->Numero_socio]);
+    $consulta_dependientes = $consulta->fetch(PDO::FETCH_OBJ);
 
-    <br>
-    <div class="row">
-        <div class="col-md-3"></div>
+    if ($consulta->rowCount() == 0) {
+    ?>
+        <div class="alert alert-success mt-3">¡Aun no tiene un voluntario para que le cuide!</div>
+    <?php
+    } else {
+    ?>
+        <br>
+        <div class="row">
+            <div class="col-md-3"></div>
 
-        <div class="col-md-6">
-            <div id="calendar">
+            <div class="col-md-6">
+                <div id="calendar">
 
+                </div>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Planes: </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="nuevo_evento_dependiente.php" method="POST">
+                            <label for="">Fecha</label>
+                            <input type="text" id="fecha" name="fecha" />
+                            <br>
+                            <label for="">Evento</label>
+                            <input type="text" id="evento" name="evento">
+                            <br>
+                            <label for="">Hora de inicio:</label>
+                            <input type="time" id="inicio" name="inicio">
+                            <br>
+                            <label for="">Hora de finalizacion:</label>
+                            <input type="time" id="finalizacion" name="finalizacion">
+                            <br>
+                            <label for="">Color del evento:</label>
+                            <input type="color" id="color" name="color">
+
+                            <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div class="col-md-3"></div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Planes: </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="nuevo_evento_dependiente.php" method="POST">
-                        <label for="">Fecha</label>
-                        <input type="text" id="fecha" name="fecha" />
-                        <br>
-                        <label for="">Evento</label>
-                        <input type="text" id="evento" name="evento">
-                        <br>
-                        <label for="">Hora de inicio:</label>
-                        <input type="time" id="inicio" name="inicio">
-                        <br>
-                        <label for="">Hora de finalizacion:</label>
-                        <input type="time" id="finalizacion" name="finalizacion">
-                        <br>
-                        <label for="">Color del evento:</label>
-                        <input type="color" id="color" name="color">
-
-                        <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+    <?php } ?>
 </body>
 
 </html>
