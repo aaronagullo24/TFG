@@ -5,6 +5,7 @@ if (!isset($_SESSION['dependiente'])) {
 }
 $voluntario = $_SESSION['dependiente'];
 $nombre = $voluntario->Nombre;
+
 ?>
 
 <!DOCTYPE html>

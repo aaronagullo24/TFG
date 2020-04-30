@@ -63,7 +63,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -106,7 +106,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
         <div class="row">
             <div class="col-md-3"></div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="background-color: white; border: 5px solid black; ">
                 <div id="calendar">
 
                 </div>

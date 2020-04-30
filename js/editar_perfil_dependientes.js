@@ -74,6 +74,7 @@ function comprobar_boton_form() {
 }
 
 function gParAlta() {
+
 	return "Nombre=" + document.getElementById('Nombre').value +
 		"&correo=" + document.getElementById('correo').value +
 		"&provinciaList=" + document.getElementById('provinciaList').value +
@@ -84,9 +85,9 @@ function gParAlta() {
 }
 
 function cBAlta(resultado) {
+
 	let datos = JSON.parse(resultado);
 	if (datos.alta == true) {
-	
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}

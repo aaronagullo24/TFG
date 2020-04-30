@@ -62,6 +62,7 @@ $nombre = $dependiente->Nombre;
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
+                        
                         <input id="Nombre" name="Nombre" class="form-control input-lg" aria-describedby="inputGroup-sizing-lg" placeholder="Nombre completo" type="text" value="<?php echo $dependiente->Nombre ?>" disabled>
 
                         <div id="nombre"></div>

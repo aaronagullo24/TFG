@@ -103,7 +103,7 @@ $administrador = $_SESSION['administrador'];
                 <form>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        <label class="input-group-text" for="inputGroupSelect01">Nombre </label>
                         </div>
                         <input id="Nombre" name="Nombre" class="form-control input-lg" aria-describedby="inputGroup-sizing-lg" placeholder="Nombre completo" type="text" value="<?php echo $dependiente->Nombre ?>">
 
@@ -113,7 +113,7 @@ $administrador = $_SESSION['administrador'];
 
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        <label class="input-group-text" for="inputGroupSelect01">Correo Electronico: </label>
                         </div>
                         <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email" value="<?php echo $dependiente->Correo ?>" disabled>
                         <div id="Correo"></div>
@@ -121,7 +121,7 @@ $administrador = $_SESSION['administrador'];
                     <br>
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        <label class="input-group-text" for="inputGroupSelect01">Password </label>
                         </div>
                         <input class="form-control" id="password" placeholder="Create password" type="password" value="<?php echo $dependiente->Password ?>">
                         <div id="Password"></div>

@@ -5,6 +5,7 @@ if (!isset($_SESSION['dependiente'])) {
 }
 $dependiente = $_SESSION['dependiente'];
 $nombre = $dependiente->Nombre;
+
 ?>
 
 <html lang="es">
@@ -149,11 +150,7 @@ $nombre = $dependiente->Nombre;
         </div>
 
     </div>
-
-
-
-
-
 </body>
+
 
 </html>

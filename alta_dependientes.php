@@ -12,11 +12,16 @@ $Correo = $_REQUEST['correo'];
 $Necesidad = $_REQUEST['necesidad'];
 $Password = $_REQUEST['password'];
 
-
-$provinciaList = (int) $Provincia;
 $xml = simplexml_load_file('provinciasypoblaciones.xml');
-$resultado = $xml->xpath("/ lista / provincia / nombre | / lista / provincia / @ id");
-$Provincia = UTF8_DECODE($resultado[$provinciaList]);
+$result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
+
+for ($i = 0; $i < count($result); $i += 2) {
+    $e = $i + 1;
+    if ($result[$i] == $Provincia) {
+        $Provincia = UTF8_DECODE($result[$e]);
+    }
+}
+
 
 
 

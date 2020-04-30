@@ -14,14 +14,19 @@ $Fecha_nacimiento = $_REQUEST['fecha_nacimiento'];
 $Correo = $_REQUEST['correo'];
 $Necesidad = $_REQUEST['necesidad'];
 $Password = $_REQUEST['password'];
+$xml = simplexml_load_file('provinciasypoblaciones.xml');
+$result = $xml->xpath("/lista/provincia/nombre | /lista/provincia/@id");
+
 
 if (is_numeric($Provincia)) {
-    $provinciaList = (int) $Provincia;
-    $xml = simplexml_load_file('provinciasypoblaciones.xml');
-    $resultado = $xml->xpath("/ lista / provincia / nombre | / lista / provincia / @ id");
-    $Provincia = UTF8_DECODE($resultado[$provinciaList]);
+    for ($i = 0; $i < count($result); $i += 2) {
+        $e = $i + 1;
+        if ($result[$i] == $Provincia) {
+            $Provincia = UTF8_DECODE($result[$e]);
+            
+        }
+    }
 }
-
 
 try {
     $sentencia = $conexion->prepare("UPDATE dependiente SET Password=:Password,Nombre=:Nombre,Provincia=:Provincia,Localidad=:Localidad,
@@ -29,7 +34,7 @@ try {
         WHERE Correo =:Correo;");
     $resultado = $sentencia->execute([
         ":Password" => $Password,
-        ":Nombre" => $Nombre, ":Provincia" => $Provincia, ":Localidad" => $Localidad, ":Correo" => $Correo, ":Fecha_nacimiento" => $Fecha_nacimiento, 
+        ":Nombre" => $Nombre, ":Provincia" => $Provincia, ":Localidad" => $Localidad, ":Correo" => $Correo, ":Fecha_nacimiento" => $Fecha_nacimiento,
         ":Necesidad" => $Necesidad
     ]);
     $operacion['alta'] = true;
