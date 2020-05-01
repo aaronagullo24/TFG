@@ -31,11 +31,18 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 <script src="fullcalendar/fullcalendar.js"></script>
 <script src="fullcalendar/locale/es.js"></script>
 
+
 <script>
     $(document).ready(function() {
         $('#calendar').fullCalendar({
             id: 'calendar',
             locale: 'es',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay,',
+                
+            },
             events: [
                 <?php
                 while ($calendario = $consulta->fetch(PDO::FETCH_OBJ)) {
@@ -56,7 +63,25 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
             dayClick: function(date, event) {
                 $("#exampleModal").modal("show");
                 $("#fecha").val(date.format());
-            }
+            },
+            eventClick: function(event) {
+                if (confirm("Esta seguro que desea eliminar el evento?")) {
+                    var id = event.id;
+                    $.ajax({
+                        url: "borrar_calendario.php",
+                        type: "POST",
+                        data: {
+                            id: id
+                        },
+                        success: function() {
+                            calendar.fullCalendar('refetchEvents');
+                            alert("Evento borrado");
+                        }
+                    })
+
+                }
+            },
+
         })
     });
 </script>
@@ -70,8 +95,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="inicio_dependientes
-        .php">
+        <a class="navbar-brand" href="inicio_dependientes.php">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
             <?php
             echo $nombre;
@@ -102,8 +126,8 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
     <?php
     } else {
     ?>
-        <br>
-        <div class="row">
+
+        <div class="row mt-1">
             <div class="col-md-3"></div>
 
             <div class="col-md-6" style="background-color: white; border: 5px solid black; ">
@@ -111,7 +135,6 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
                 </div>
             </div>
-
             <div class="col-md-3"></div>
         </div>
 
