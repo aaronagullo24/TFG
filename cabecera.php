@@ -50,6 +50,10 @@ function administrador($administrador){
         <ul class="nav navbar-nav">
             <li><a href="parejas.php">Parejas</a></li>
         </ul>
+
+        <ul class="nav navbar-nav">
+            <li><a href="calendario_admin.php">Calendario</a></li>
+        </ul>
     </div>
     <div class="d-flex flex-row justify-content-center">
 
