@@ -194,7 +194,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="actualizar_evento_voluntario.php" method="POST">
+                        <form action="actualizar_evento_dependiente.php" method="POST">
 
                             <input type="hidden" id="fecha1" name="fecha1" />
                             <br>
@@ -219,7 +219,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
-                        <form action="borrar_calendario_voluntario.php" method="POST">
+                        <form action="borrar_calendario_dependiente.php" method="POST">
                             <input type="hidden" name="id1" id="id1">
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
