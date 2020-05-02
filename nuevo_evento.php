@@ -3,16 +3,19 @@ session_start();
 include_once "conectar.php";
 $conexion = conectar();
 
-$fecha=$_REQUEST['fecha'];
-$evento=$_REQUEST['evento'];
-$inicio=$_REQUEST['inicio'];
-$finalizacion=$_REQUEST['finalizacion'];
-$color=$_REQUEST['color'];
+$fecha = $_REQUEST['fecha'];
+$evento = $_REQUEST['evento'];
+$inicio = $_REQUEST['inicio'];
+$finalizacion = $_REQUEST['finalizacion'];
+$final = $_REQUEST['final'];
+$color = $_REQUEST['color'];
+$detalles = $_REQUEST['detalles'];
 
-$voluntario=$_REQUEST['voluntario'];
+$voluntario = $_REQUEST['voluntario'];
 
-$inicio=$fecha." ".$inicio;
-$finalizacion=$fecha." ".$finalizacion;
+
+$inicio = $fecha . " " . $inicio;
+$finalizacion = $final . " " . $finalizacion;
 
 
 $sql = "SELECT * FROM parejas WHERE id_voluntario=:id_voluntario";

@@ -55,7 +55,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                         color: " <?php echo $calendario->color ?>",
                         editable: "<?php echo $calendario->editable ?>",
                         description: "<?php echo $calendario->Detalles ?>"
-
+                    
                     },
                 <?php
                 }
@@ -64,12 +64,17 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
             dayClick: function(date, event) {
                 $("#exampleModal").modal("show");
                 $("#fecha").val(date.format());
+                $("#final").val(date.format());
             },
             
             eventClick: function(info) {
+                console.log(info)
                 $("#update").modal("show");
                 $("#evento1").val(info.title);
                 $("#fecha1").val(info.start.format());
+                if(info.end != null){
+                    $("#finalizacion1").val(info.end.format() );
+                }
                 $("#color1").val(info.color);
                 $("#detalles1").val(info.description);
                 $("#id").val(info.id);
@@ -151,7 +156,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                             <input type="text" id="evento" name="evento">
                             <br>
                             <label for="">Fecha de finalizacion</label>
-                            <input type="date" id="final" name="final" />
+                            <input type="date" required id="final" name="final"/>
                             <br>
                             <label for="">Hora de inicio:</label>
                             <input type="time" id="inicio" name="inicio">
@@ -189,17 +194,17 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="actualizar_evento_dependiente.php" method="POST">
-                            
+                        <form action="actualizar_evento_voluntario.php" method="POST">
+
                             <input type="hidden" id="fecha1" name="fecha1" />
                             <br>
                             <label for="">Evento</label>
                             <input type="text" id="evento1" name="evento1">
-                          
-                            
+
+
                             <input type="hidden" id="inicio1" name="inicio1">
-                           
-                            
+
+
                             <input type="hidden" id="finalizacion1" name="finalizacion1">
                             <br>
                             <label for="">Color del evento:</label>
@@ -214,7 +219,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
-                        <form action="borrar_calendario_dependiente.php" method="POST">
+                        <form action="borrar_calendario_voluntario.php" method="POST">
                             <input type="hidden" name="id1" id="id1">
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
@@ -223,7 +228,6 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                 </div>
             </div>
         </div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="js/bootstrap.min.js"></script>
     <?php } ?>
