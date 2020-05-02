@@ -85,7 +85,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
 </head>
 
-<body>
+<body style="background-color: #4FD53C;">
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +125,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
         <div class="row">
             <div class="col-md-3"></div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="background-color: white; border: 5px solid black; ">
                 <div id="calendar">
 
                 </div>
