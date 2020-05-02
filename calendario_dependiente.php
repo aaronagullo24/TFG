@@ -41,7 +41,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                 left: 'prev,next today',
                 center: 'title',
                 right: 'month,basicWeek,basicDay,',
-                
+
             },
             events: [
                 <?php
@@ -53,7 +53,8 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                         start: "<?php echo $calendario->start ?>",
                         end: "<?php echo $calendario->end ?>",
                         color: " <?php echo $calendario->color ?>",
-                        editable: "<?php echo $calendario->editable ?>"
+                        editable: "<?php echo $calendario->editable ?>",
+                        description: "<?php echo $calendario->Detalles ?>"
 
                     },
                 <?php
@@ -64,22 +65,14 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                 $("#exampleModal").modal("show");
                 $("#fecha").val(date.format());
             },
-            eventClick: function(event) {
-                if (confirm("Esta seguro que desea eliminar el evento?")) {
-                    var id = event.id;
-                    $.ajax({
-                        url: "borrar_calendario.php",
-                        type: "POST",
-                        data: {
-                            id: id
-                        },
-                        success: function() {
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Evento borrado");
-                        }
-                    })
-
-                }
+            eventClick: function(info) {
+                $("#update").modal("show");
+                $("#evento1").val(info.title);
+                $("#fecha1").val(info.start.format());
+                $("#color1").val(info.color);
+                $("#detalles1").val(info.description);
+                $("#id").val(info.id);
+                $("#id1").val(info.id);
             },
 
         })
@@ -164,12 +157,62 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                             <br>
                             <label for="">Color del evento:</label>
                             <input type="color" id="color" name="color">
+                            <BR>
+                            <label for="">Detalles:</label>
+                            <input type="text" id="detalles" name="detalles">
 
                             <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal UPDATE -->
+        <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="update">ACTUALIZAR: </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="actualizar_evento_dependiente.php" method="POST">
+                            <label for="">Fecha</label>
+                            <input type="text" id="fecha1" name="fecha1" />
+                            <br>
+                            <label for="">Evento</label>
+                            <input type="text" id="evento1" name="evento1">
+                            <br>
+                            <label for="">Hora de inicio:</label>
+                            <input type="time" id="inicio1" name="inicio1">
+                            <br>
+                            <label for="">Hora de finalizacion:</label>
+                            <input type="time" id="finalizacion1" name="finalizacion1">
+                            <br>
+                            <label for="">Color del evento:</label>
+                            <input type="color" id="color1" name="color1">
+                            <br>
+                            <label for="">Detalles:</label>
+                            <input type="text" id="detalles1" name="detalles1">
+
+                            <input type="hidden" name="id" id="id">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                        <form action="borrar_calendario_dependiente.php" method="POST">
+                            <input type="hidden" name="id1" id="id1">
+                            <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
                     </div>
 
