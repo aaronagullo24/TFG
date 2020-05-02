@@ -7,13 +7,14 @@ $fecha=$_REQUEST['fecha'];
 $evento=$_REQUEST['evento'];
 $inicio=$_REQUEST['inicio'];
 $finalizacion=$_REQUEST['finalizacion'];
+$final=$_REQUEST['final'];
 $color=$_REQUEST['color'];
 $detalles=$_REQUEST['detalles'];
 
 $dependiente=$_REQUEST['dependiente'];
 
 $inicio=$fecha." ".$inicio;
-$finalizacion=$fecha." ".$finalizacion;
+$finalizacion=$final." ".$finalizacion;
 
 
 $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";

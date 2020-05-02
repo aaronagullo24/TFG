@@ -65,6 +65,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                 $("#exampleModal").modal("show");
                 $("#fecha").val(date.format());
             },
+            
             eventClick: function(info) {
                 $("#update").modal("show");
                 $("#evento1").val(info.title);
@@ -144,10 +145,13 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                     <div class="modal-body">
                         <form action="nuevo_evento_dependiente.php" method="POST">
                             <label for="">Fecha</label>
-                            <input type="text" id="fecha" name="fecha" />
+                            <input type="date" id="fecha" name="fecha" />
                             <br>
                             <label for="">Evento</label>
                             <input type="text" id="evento" name="evento">
+                            <br>
+                            <label for="">Fecha de finalizacion</label>
+                            <input type="date" id="final" name="final" />
                             <br>
                             <label for="">Hora de inicio:</label>
                             <input type="time" id="inicio" name="inicio">
@@ -186,17 +190,17 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                     </div>
                     <div class="modal-body">
                         <form action="actualizar_evento_dependiente.php" method="POST">
-                            <label for="">Fecha</label>
-                            <input type="text" id="fecha1" name="fecha1" />
+                            
+                            <input type="hidden" id="fecha1" name="fecha1" />
                             <br>
                             <label for="">Evento</label>
                             <input type="text" id="evento1" name="evento1">
-                            <br>
-                            <label for="">Hora de inicio:</label>
-                            <input type="time" id="inicio1" name="inicio1">
-                            <br>
-                            <label for="">Hora de finalizacion:</label>
-                            <input type="time" id="finalizacion1" name="finalizacion1">
+                          
+                            
+                            <input type="hidden" id="inicio1" name="inicio1">
+                           
+                            
+                            <input type="hidden" id="finalizacion1" name="finalizacion1">
                             <br>
                             <label for="">Color del evento:</label>
                             <input type="color" id="color1" name="color1">
