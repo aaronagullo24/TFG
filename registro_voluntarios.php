@@ -14,7 +14,7 @@
     <script src="js/AjaxCode.js"></script>
     <script src="js/comprobar_form_voluntarios.js"></script>
     <script src="js/mi_libreriaAjax.js"></script>
-    
+
 </head>
 
 <body style="background-color: aquamarine;">
@@ -40,7 +40,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <br>
 
@@ -55,7 +54,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input id="Nombre" name="Nombre"  class="form-control" placeholder="Nombre completo" type="text">
+                        <input id="Nombre" name="Nombre" class="form-control" placeholder="Nombre completo" type="text">
                         <div id="nombre"></div>
                     </div>
 
@@ -65,7 +64,7 @@
                         </div>
                         <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email">
                         <div id="Correo"></div>
-                    </div> 
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
@@ -76,28 +75,28 @@
                             <option>Neurología. </option>
                             <option>Enfermería. </option>
                             <option>Fisioterapia. </option>
-                            <option>Cuidado y asistencia al adulto.  </option>
+                            <option>Cuidado y asistencia al adulto. </option>
                             <option>Educación social. </option>
-                            <option>Trabajo social.  </option>
+                            <option>Trabajo social. </option>
                             <option>Nutrición y dietética. </option>
-                            <option>Educación para adultos.  </option>
-                            <option>Otros...  </option>
-                            <option>Ninguno  </option>
+                            <option>Educación para adultos. </option>
+                            <option>Otros... </option>
+                            <option>Ninguno </option>
 
                         </select>
                         <div id="Titulacion"></div>
-                    </div> 
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input class="form-control" id="password" placeholder="Create password" type="password">
                         <div id="Password"></div>
-                    </div> 
-                   
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" id="boton"> Crear cuenta </button>
-                    </div> 
+                    </div>
 
                 </form>
             </article>

@@ -22,9 +22,6 @@ for ($i = 0; $i < count($result); $i += 2) {
     }
 }
 
-
-
-
 try {
     $sql = "INSERT INTO dependiente (Numero_socio,Nombre,Provincia,Localidad,Fecha_nacimiento,Correo,Necesidad,Password) value 
     (:Numero_socio,:Nombre,:Provincia,:Localidad,:Fecha_nacimiento,:Correo,:Necesidad,:Password)";
@@ -35,8 +32,22 @@ try {
         ":Password" => $Password
     ]);
     $operacion['alta'] = true;
+    echo json_encode($operacion);
+
+    ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+    $from = "admin@oldver.es";
+    $to = $Correo;
+    $subject = "Dado de alta correctamente";
+    $message = "Muchas gracias por darse de alta en nuestra plataforma, a partir de este momento recibirá ayuda de nuestros voluntarios
+    Muchas Gracias, esperamos ayudarle mucho";
+    $headers = "From:" . $from;
+    mail($to,$subject,$message, $headers);
+
+    $operacion['alta'] = true;
 } catch (PDOException $e) {
     $operacion['alta'] = false;
+    echo json_encode($operacion);
 }
 
 echo json_encode($operacion);
