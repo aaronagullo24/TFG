@@ -94,6 +94,24 @@ $nombre = $voluntario->Nombre;
                         <div id="Password"></div>
                     </div>
 
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" id="descripcion" type="text" value="<?php echo $voluntario->descripcion ?>" disabled>
+                        <div id="Password"></div>
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" id="experiencia"  type="text" value="<?php echo $voluntario->experiencia ?>" disabled>
+                        <div id="Password"></div>
+                    </div>
+
+
                     <div class="form-group">
                         <a href="editar_perfil_voluntario.php" type="button" class="btn btn-outline-success">Editar Perfil</a>
                     </div>

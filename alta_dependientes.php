@@ -31,23 +31,20 @@ try {
         ":Correo" => $Correo, ":Necesidad" => $Necesidad, ":Nombre" => $Nombre, ":Fecha_nacimiento" => $Fecha_nacimiento,
         ":Password" => $Password
     ]);
-    $operacion['alta'] = true;
-    echo json_encode($operacion);
-
-    ini_set( 'display_errors', 1 );
-    error_reporting( E_ALL );
-    $from = "admin@oldver.es";
-    $to = $Correo;
-    $subject = "Dado de alta correctamente";
-    $message = "Muchas gracias por darse de alta en nuestra plataforma, a partir de este momento recibirá ayuda de nuestros voluntarios
-    Muchas Gracias, esperamos ayudarle mucho";
-    $headers = "From:" . $from;
-    mail($to,$subject,$message, $headers);
 
     $operacion['alta'] = true;
 } catch (PDOException $e) {
     $operacion['alta'] = false;
-    echo json_encode($operacion);
 }
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+$from = "admin@oldver.es";
+$to = $Correo;
+$subject = "Dado de alta correctamente";
+$message = "Muchas gracias por darse de alta en nuestra plataforma, a partir de este momento recibirá ayuda de nuestros voluntarios
+Muchas Gracias, esperamos ayudarle mucho";
+$headers = "From:" . $from;
+mail($to, $subject, $message, $headers);
 
 echo json_encode($operacion);

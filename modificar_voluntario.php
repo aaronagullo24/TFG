@@ -59,7 +59,7 @@ $administrador = $_SESSION['administrador'];
             <tr>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Numero de Socio</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Correo</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Modificar</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Eliminar</th>
             </tr>
@@ -74,7 +74,7 @@ $administrador = $_SESSION['administrador'];
                 <tr>
                     <td><?php echo $voluntario->Numero_socio ?></td>
                     <td><?php echo $voluntario->Nombre ?></td>
-                    <td><?php echo $voluntario->Titulacion ?></td>
+                    <td><?php echo $voluntario->Correo ?></td>
                     <td>
 
                         <form action="modificar_voluntarios_admin.php" method="post">

@@ -86,9 +86,10 @@ function gParAlta() {
 }
 
 function cBAlta(resultado) {
+	console.log(resultado);
 	let datos = JSON.parse(resultado);
-	if (datos.alta == true) {
 	
+	if (datos.alta == true) {
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}

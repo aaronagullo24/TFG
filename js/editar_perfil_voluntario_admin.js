@@ -1,4 +1,4 @@
-let comprobar = Array("V", "V", "V");
+let comprobar = Array("V", "V", "V","V","V");
 //Nombre password titulacion
 console.log(comprobar);
 window.addEventListener("load", function () {
@@ -6,10 +6,14 @@ window.addEventListener("load", function () {
 	let correo = document.getElementById("correo");
 	let password = document.getElementById("password");
 	let titulacion = document.getElementById("titulacion");
+	let descripcion = document.getElementById("descripcion");
+	let experiencia = document.getElementById("experiencia");
 
 	password.addEventListener("blur", comprobar_password);
 	Nombre.addEventListener("blur", comprobar_nombre);
 	titulacion.addEventListener("blur", comprobar_titulacion);
+	descripcion.addEventListener("blur", comprobar_descripcion);
+	experiencia.addEventListener("blur", comprobar_experiencia);
 
 
 	let boton = document.getElementById("boton");
@@ -17,6 +21,37 @@ window.addEventListener("load", function () {
 
 
 });
+
+//experiencia
+function comprobar_experiencia() {
+	if (document.getElementById('experiencia').value == '') {
+		document.getElementById("experiencia1").innerHTML = "RELLENA EL CAMPO";
+		comprobar[4] = "F";
+	} else {
+		document.getElementById("experiencia1").innerHTML = "&#10004";
+		comprobar[4] = "V";
+		llamarAjax('', gParexperiencia(), '', 'F_Error', 'post', 0);
+	}
+}
+function gParexperiencia() {
+	return "experiencia=" + document.getElementById('descripcion').value;
+}
+
+//descripcion
+function comprobar_descripcion() {
+	if (document.getElementById('descripcion').value == '') {
+		document.getElementById("descripcion1").innerHTML = "RELLENA EL CAMPO";
+		comprobar[5] = "F";
+	} else {
+		document.getElementById("descripcion1").innerHTML = "&#10004";
+		comprobar[5] = "V";
+		llamarAjax('', gParDescripcion(), '', 'F_Error', 'post', 0);
+	}
+}
+
+function gParDescripcion() {
+	return "descripcion=" + document.getElementById('descripcion').value;
+}
 
 //Titulo
 function comprobar_titulacion() {
@@ -64,6 +99,8 @@ function gParAlta() {
 	return "Nombre=" + document.getElementById('Nombre').value +
 		"&correo=" + document.getElementById('correo').value +
 		"&titulacion=" + document.getElementById('titulacion').value +
+		"&descripcion=" + document.getElementById('descripcion').value +
+		"&experiencia=" + document.getElementById('experiencia').value +
 		"&password=" + document.getElementById('password').value;
 }
 

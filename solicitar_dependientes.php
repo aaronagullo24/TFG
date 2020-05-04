@@ -74,6 +74,8 @@ $nombre = $dependiente->Nombre;
                 <tr>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Descripcion</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Experiencia</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Aceptar</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Denegar</th>
                 </tr>
@@ -100,6 +102,8 @@ $nombre = $dependiente->Nombre;
 
                         <td><?php echo $voluntario->Nombre ?></td>
                         <td><?php echo $voluntario->Titulacion ?></td>
+                        <td><?php echo $voluntario->descripcion ?></td>
+                        <td><?php echo $voluntario->experiencia ?></td>
                         <td>
 
                             <form action="aceptar_solicitud.php" method="post">

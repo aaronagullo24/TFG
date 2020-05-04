@@ -88,6 +88,22 @@ include_once "cabecera.php";
                         <div id="Password"></div>
                     </div>
 
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <textarea id="descripcion" name="descripcion" rows="3" cols="50" placeholder="Introduzca una breve descripcion de usted para que le conozca el dependiente"></textarea>
+                        <div id="descripcion1"></div>
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <textarea id="experiencia" name="experiencia" rows="3" cols="50" placeholder="Introduzca que tipo de experiencia tiene,si tiene..."></textarea>
+                        <div id="experiencia1"></div>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block" id="boton"> Crear cuenta </button>
                     </div>

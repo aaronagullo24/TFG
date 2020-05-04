@@ -107,6 +107,23 @@ $nombre = $voluntario->Nombre;
                         <div id="Password"></div>
                     </div>
 
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <textarea id="descripcion" rows="3" cols="50"><?php echo $voluntario->descripcion ?></textarea>
+                        <div id="descripcion1"></div>
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <textarea id="experiencia" rows="3" cols="50"><?php echo $voluntario->experiencia ?></textarea>
+                        <div id="experiencia1"></div>
+                    </div>
+
                     <div class="form-group">
                         <a href="editar_perfil_voluntario.php" type="button" class="btn btn-outline-success" id="boton">Guardar Cambios</a>
                     </div>
