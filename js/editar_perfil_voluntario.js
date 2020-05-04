@@ -1,4 +1,4 @@
-let comprobar = Array("V", "V", "V");
+let comprobar = Array("V", "V", "V","V","V");
 //Nombre password titulacion
 console.log(comprobar);
 window.addEventListener("load", function () {

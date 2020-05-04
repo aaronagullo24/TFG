@@ -13,7 +13,8 @@ $descripcion = $_REQUEST['descripcion'];
 $experiencia = $_REQUEST['experiencia'];
 
 try {
-    $sentencia = $conexion->prepare("UPDATE voluntario SET Nombre=:Nombre,Titulacion=:Titulacion,Password=:Password,Correo=:Correo,descripcion=:descripcion,experiencia=:experiencia
+    $sentencia = $conexion->prepare("UPDATE voluntario SET Nombre=:Nombre,Titulacion=:Titulacion,Password=:Password,
+    Correo=:Correo,descripcion=:descripcion,experiencia=:experiencia
         WHERE Correo =:Correo;");
     $resultado = $sentencia->execute([
         ":Nombre" => $Nombre, ":Titulacion" => $Titulacion, ":Password" => $Password, ":Correo" => $Correo,
