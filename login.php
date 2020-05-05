@@ -57,7 +57,7 @@ if (isset($_REQUEST['nombre'])) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-image:url(resources/mayor.jpg) ;">
 
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ if (isset($_REQUEST['nombre'])) {
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container mt-1">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card card-signin my-5">
@@ -99,12 +99,7 @@ if (isset($_REQUEST['nombre'])) {
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
 
                             </div>
-
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Remember password</label>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">ENTRAR</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase mt-3" type="submit">ENTRAR</button>
                             <hr class="my-4">
 
                             <?php
@@ -121,13 +116,13 @@ if (isset($_REQUEST['nombre'])) {
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
