@@ -60,7 +60,7 @@ $nombre = $voluntario->Nombre;
             <?= $voluntario->Nombre ?> </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
+            <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
                 <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
                 <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
