@@ -2,7 +2,7 @@
 include_once "conectar.php";
 $conexion = conectar();
 $operacion = [];
-
+session_start();
 
 $Nombre =  $_REQUEST['Nombre'];
 $Provincia = $_REQUEST['provinciaList'];
@@ -31,20 +31,12 @@ try {
         ":Correo" => $Correo, ":Necesidad" => $Necesidad, ":Nombre" => $Nombre, ":Fecha_nacimiento" => $Fecha_nacimiento,
         ":Password" => $Password
     ]);
-
+    $_SESSION['alta'] = $Correo;
+    
     $operacion['alta'] = true;
 } catch (PDOException $e) {
     $operacion['alta'] = false;
 }
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-$from = "admin@oldver.es";
-$to = $Correo;
-$subject = "Dado de alta correctamente";
-$message = "Muchas gracias por darse de alta en nuestra plataforma, a partir de este momento recibirá ayuda de nuestros voluntarios
-Muchas Gracias, esperamos ayudarle mucho";
-$headers = "From:" . $from;
-mail($to, $subject, $message, $headers);
 
 echo json_encode($operacion);

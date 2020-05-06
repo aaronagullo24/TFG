@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+if (isset($_SESSION['alta'])) {
+    $Correo = $_SESSION['alta'];
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $from = "admin@oldver.es";
+    $to = $Correo;
+    $subject = "Dado de alta correctamente";
+    $message = "Muchas gracias por darse de alta en nuestro servicio de voluntarios de oldver para ayudar a la gente que lo necesita,
+    ya puede entrar a su perfil. 
+    Muchas gracias.";
+    $headers = "From:" . $from;
+    mail($to, $subject, $message, $headers);
+    unset($_SESSION['alta']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,9 +35,7 @@
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
@@ -37,6 +54,7 @@
             </div>
         </div>
     </nav>
+
     <br>
     <br>
     <div class="alert alert-success">¡USUARIO DADO DE ALTA CORRECTAMENTE!</div>

@@ -112,7 +112,7 @@ function cBAlta(resultado) {
 		for (let i = 0; i < comprobar.length; i++) {
 			comprobar[i] = "F";
 		}
-		window.location.replace("usuario_correcto.html");
+		window.location.replace("usuario_correcto.php");
 	} else {
 		p.style.color = "red";
 		p.innerHTML = "ERRORE";
