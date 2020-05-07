@@ -44,6 +44,7 @@ $nombre = $dependiente->Nombre;
                 <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
                 <a class="nav-item nav-link " href="calendario.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
+                <a class="nav-item nav-link text-danger" href="emergencia_dependientes.php">Emergencias</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
                 <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
