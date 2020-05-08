@@ -103,6 +103,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
                 <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
                 <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
                 <a class="nav-item nav-link " href="chat_dependiente.php">chat</a>
+                <a class="nav-item nav-link " href="perfil_dependiente.php">Perfil dependiente</a>
             </div>
             <div class="d-flex flex-row justify-content-center">
                 <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
