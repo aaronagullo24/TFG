@@ -90,7 +90,7 @@ $nombre = $dependiente->Nombre;
 
                     <div class="input-group mb-8">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Provincia en la que vive: </label>
+                            <label class="input-group-text" for="inputGroupSelect01">Provincia: </label>
                         </div>
 
                         <select name="provinciaList" id="provinciaList" class="custom-select" disabled>
@@ -104,7 +104,7 @@ $nombre = $dependiente->Nombre;
                     </div>
                     <div class="input-group mb-8">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Localidad en la que vive: </label>
+                            <label class="input-group-text" for="inputGroupSelect01">Localidad: </label>
                         </div>
                         <select name="localidadList" id="localidadList" class="form-control" disabled>
                             <option><?php echo $dependiente->Localidad ?></option>

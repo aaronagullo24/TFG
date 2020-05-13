@@ -57,8 +57,7 @@ if (isset($_REQUEST['nombre'])) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-image:url(resources/mayor.jpg)">
-
+<body style="background-image:url(resources/manos.jpg)">
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -80,12 +79,12 @@ if (isset($_REQUEST['nombre'])) {
         </div>
     </nav>
 
-    <div class="container mt-1">
+    <div class="container mt-1" >
         <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">ACCESO CLIENTES</h5>
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" >
+                <div class="card card-signin my-5" style="border: solid 3px black">
+                    <div class="card-body" >
+                        <h5 class="card-title text-center">ACCESO</h5>
                         <form class="form-signin" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                             <div class="form-label-group">
 

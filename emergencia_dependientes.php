@@ -16,15 +16,15 @@ if ($dependiente->voluntario != null) {
 
     $sql1 = "SELECT * FROM voluntario WHERE Numero_socio=:Numero_socio;";
     $consulta1 = $conexion->prepare($sql1);
-    $consulta1->execute([":Numero_socio" => $voluntario->Numero_socio]);
+    $consulta1->execute([":Numero_socio" => $voluntario->voluntario]);
     $voluntario1 = $consulta1->fetch(PDO::FETCH_OBJ);
 
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
     $from = "admin@oldver.es";
-    $to = $voluntario->Correo;
+    $to = $voluntario1->Correo;
     $subject = "Emergencia";
-    $message = "Su dependiente a enviado un mensaje de ayuda, corre";
+    $message = "Tu dependiente ha pulsado el botón de SOS y necesita tu apoyo. ¡Cuenta contigo, en estos duros momentos!";
     $headers = "From:" . $from;
     mail($to, $subject, $message, $headers);
 }
@@ -78,7 +78,7 @@ $nombre = $dependiente->Nombre;
         </div>
     </nav>
     <div align="center" class="mt-3">
-        <a href="tel:+34663192984"><img src="resources/sos.jpg" /></a>
+        <a href="tel:+34684105254"><img src="resources/sos.jpg" /></a>
 
         <h1>Pulse para llamar a los servicio de emergencia</h1>
     </div>
