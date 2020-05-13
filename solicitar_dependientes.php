@@ -22,7 +22,7 @@ $nombre = $dependiente->Nombre;
     <script src="js/buscar.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #A4F4AA;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -52,8 +52,8 @@ $nombre = $dependiente->Nombre;
     </nav>
 
     <section class="container my-0 py-4">
-        <h3 class="text-uppercase text-center mb-4">Oldver</h3>
-        <p class="lead text-center mb-5">Aqui puedes ver todos los dependientes que desean ayudarle con sus problemas </p>
+        <h3 class="text-uppercase text-center mb-4">Solucitudes de voluntarios</h3>
+        <p class="lead text-center mb-5"> Peticiones de voluntarios para ayudarle. </p>
 
     </section>
     <?php
@@ -69,14 +69,14 @@ $nombre = $dependiente->Nombre;
     <?php
     } else {
     ?>
-        <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
+        <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar...">
         <br>
-        <table class="table table-hover order-table" id="tabla">
+        <table class="table table-hover order-table" id="tabla" >
             <thead class="thead-dark">
                 <tr>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
-                    <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
-                    <th style="width:180px; background-color: #5DACCD; color:#fff">Descripcion</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Titulación</th>
+                    <th style="width:180px; background-color: #5DACCD; color:#fff">Descripción</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Experiencia</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Aceptar</th>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Denegar</th>

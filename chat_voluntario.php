@@ -44,7 +44,7 @@ $nombre = $dependiente->Nombre;
     </script>
 </head>
 
-<body style="background-color: #81F781;" onload="ajax();">
+<body background="resources/chat.jpg" onload="ajax();">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -83,8 +83,8 @@ $nombre = $dependiente->Nombre;
     } else {
     ?>
         <div class="container">
-            <div id="caja-chat" style="border: solid 3px black;">
-                <div id="chat" style="background-color: greenyellow;">
+            <div id="caja-chat" style="border: solid 3px black;background-color: #A4F4AA ">
+                <div id="chat" style="background-color:#A4F4AA;">
 
                 </div>
             </div>

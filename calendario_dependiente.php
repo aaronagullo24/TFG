@@ -87,7 +87,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
 </head>
 
-<body style="background-color: #4FD53C;">
+<body background="resources/calendario.jpg">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
