@@ -26,7 +26,7 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">

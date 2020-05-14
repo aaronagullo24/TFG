@@ -21,7 +21,7 @@ if (isset($_REQUEST['nombre'])) {
     if ($consulta->rowCount() != 0) {
         if ($password == $voluntario->Password) {
             $_SESSION['usuario'] = $voluntario;
-            header("Location:inicio_voluntarios.php");
+            header("Location:ver_perfil_voluntario.php");
         } else {
             $mensaje = "error";
             header("Location: login.php?mensaje=$mensaje");
@@ -29,7 +29,7 @@ if (isset($_REQUEST['nombre'])) {
     } else if ($consulta2->rowCount() != 0) {
         if ($password == $dependiente->Password) {
             $_SESSION['dependiente'] = $dependiente;
-            header("Location:inicio_dependientes.php");
+            header("Location:ver_perfil_dependientes.php");
         } else {
             $mensaje = "error";
             header("Location: login.php?mensaje=$mensaje");
@@ -57,7 +57,7 @@ if (isset($_REQUEST['nombre'])) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-image:url(resources/manos.jpg)">
+<body style="background-image:url(resources/ayudar.jpg)">
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -82,20 +82,20 @@ if (isset($_REQUEST['nombre'])) {
     <div class="container mt-1" >
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto" >
-                <div class="card card-signin my-5" style="border: solid 3px black">
+                <div class="card card-signin my-5" style="border: solid 3px black; background-color: #28F725;">
                     <div class="card-body" >
-                        <h5 class="card-title text-center">ACCESO</h5>
+                        <h5 class="card-title text-center">INICIO SESIÓN</h5>
                         <form class="form-signin" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                             <div class="form-label-group">
 
                                 <label for="nombre">Correo</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nick">
+                                <input type="text" id="nombre" name="nombre" class="form-control" required>
 
                             </div>
 
                             <div class="form-label-group">
-                                <label for="inputPassword">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                                <label for="inputPassword">Contraseña</label>
+                                <input type="password" id="password" name="password" class="form-control"required>
 
                             </div>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase mt-3" type="submit">ENTRAR</button>
@@ -106,7 +106,7 @@ if (isset($_REQUEST['nombre'])) {
                             if (isset($_REQUEST['mensaje'])) {
                             ?>
                                 <br>
-                                <div class="alert alert-danger">Usuario incorrecto</div>
+                                <div class="alert alert-danger">Usuario o contraseña incorrecta</div>
                                 <hr class="my-4">
                             <?php
                             }

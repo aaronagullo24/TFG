@@ -65,6 +65,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
                 dayClick: function(date, event) {
                     $("#exampleModal").modal("show");
                     $("#fecha").val(date.format());
+                    $("#final").val(date.format());
                 },
                 eventClick: function(info) {
                     console.log(info)
@@ -85,7 +86,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
 </head>
 
-<body style="background-color: #4FD53C;">
+<body background="resources/calendario.jpg">
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,7 +124,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
     } else {
     ?>
         <br>
-        <div class="row">
+        <div class="row mt-1">
             <div class="col-md-3"></div>
 
             <div class="col-md-6" style="background-color: white; border: 5px solid black; ">
