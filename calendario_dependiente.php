@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
+include_once("funciones.php");
 $dependiente = $_SESSION['dependiente'];
 $nombre = $dependiente->Nombre;
 include_once "conectar.php";
@@ -55,7 +56,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                         color: " <?php echo $calendario->color ?>",
                         editable: "<?php echo $calendario->editable ?>",
                         description: "<?php echo $calendario->Detalles ?>"
-                    
+
                     },
                 <?php
                 }
@@ -66,14 +67,14 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                 $("#fecha").val(date.format());
                 $("#final").val(date.format());
             },
-            
+
             eventClick: function(info) {
                 console.log(info)
                 $("#update").modal("show");
                 $("#evento1").val(info.title);
                 $("#fecha1").val(info.start.format());
-                if(info.end != null){
-                    $("#finalizacion1").val(info.end.format() );
+                if (info.end != null) {
+                    $("#finalizacion1").val(info.end.format());
                 }
                 $("#color1").val(info.color);
                 $("#detalles1").val(info.description);
@@ -89,32 +90,9 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
 <body background="resources/calendario.jpg">
 
-    <!-- menú de navegación -->
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="inicio_dependientes.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?php
-            echo $nombre;
-            ?>
-            </p> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="solicitar_dependientes.php" mark>Solicitar</a>
-                <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario_dependiente.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
-                <a class="nav-item nav-link " href="perfil_pareja_dependiente.php">Perfil del Voluntario</a>
-                <a class="nav-item nav-link text-danger" href="emergencia_dependientes.php">Emergencias</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    dependiente($nombre);
+    ?>
     <?php
     $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";
     $consulta = $conexion->prepare($sql);
@@ -158,7 +136,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                             <input type="text" id="evento" name="evento">
                             <br>
                             <label for="">Fecha de finalizacion</label>
-                            <input type="date" required id="final" name="final"/>
+                            <input type="date" required id="final" name="final" />
                             <br>
                             <label for="">Hora de inicio:</label>
                             <input type="time" id="inicio" name="inicio">

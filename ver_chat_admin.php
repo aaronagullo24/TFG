@@ -50,7 +50,7 @@ $id_dependiente = $_SESSION['id_dependiente'];
 
         setInterval(function() {
             ajax();
-        }, 100);
+        }, 1000);
     </script>
 </head>
 

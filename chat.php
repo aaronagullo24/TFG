@@ -18,9 +18,10 @@ $consulta->execute([":id_dependiente" => $dependiente->Numero_socio, ":id_volunt
 while ($voluntario1 = $consulta->fetch(PDO::FETCH_OBJ)) {
 
 ?>
-    <div id="datos-chat" style="border:1px solid blue;background-color:white">
+    <div id="datos-chat" style="border:1px solid blue;background-color:white; word-wrap: break-word">
         <span style="color:#1c62c4;"><?php echo $voluntario1->Nombre ?></span>
-        <span style="color:#848484;"><?php echo $voluntario1->mensaje ?></span>
         <span style="float:right;"><?php echo $voluntario1->fecha ?></span>
+        <p style="color:#848484;"><?php echo $voluntario1->mensaje ?></p>
+        
     </div>
 <?php } ?>

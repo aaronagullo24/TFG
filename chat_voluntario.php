@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
+include_once("funciones.php");
 include_once "conectar.php";
 $conexion = conectar();
 $dependiente = $_SESSION['dependiente'];
@@ -46,28 +47,9 @@ $nombre = $dependiente->Nombre;
 
 <body background="resources/chat.jpg" onload="ajax();">
 
-    <!-- menú de navegación -->
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="inicio_dependientes.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?= $dependiente->Nombre ?> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="solicitar_dependientes.php">Solicitar</a>
-                <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario_dependiente.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
-                <a class="nav-item nav-link " href="perfil_pareja_dependiente.php">Perfil del Voluntario</a>
-                <a class="nav-item nav-link text-danger" href="emergencia_dependientes.php">Emergencias</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    dependiente($nombre);
+    ?>
     <br>
 
     <?php
@@ -98,10 +80,10 @@ $nombre = $dependiente->Nombre;
                             <input type="hidden" name="id" id="id" value="<?php echo $dependiente->Numero_socio ?>">
                             <input type="hidden" name="nombre" id="nombre" value="<?php echo $dependiente->Nombre ?>">
                             <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
-                            
+
                     </div>
                     <div class="col-2 ml-0">
-                    <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-primary" value="Enviar">
+                        <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-primary" value="Enviar">
                         </form>
                     </div>
                 </div>
