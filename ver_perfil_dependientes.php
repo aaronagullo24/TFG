@@ -3,7 +3,9 @@ session_start();
 if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
-include_once("funciones.php");
+include_once "funciones.php";
+include_once "conectar.php";
+$conexion = conectar();
 $dependiente = $_SESSION['dependiente'];
 $nombre = $dependiente->Nombre;
 ?>
@@ -28,6 +30,11 @@ $nombre = $dependiente->Nombre;
 
     <?php
     dependiente($nombre);
+
+    $sql = "SELECT * FROM dependiente WHERE Correo=:Correo";
+    $consulta = $conexion->prepare($sql);
+    $consulta->execute([":Correo" => $dependiente->Correo]);
+    $dependiente_consulta = $consulta->fetch(PDO::FETCH_OBJ);
     ?>
 
     <div class="container">
@@ -36,7 +43,7 @@ $nombre = $dependiente->Nombre;
 
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
-                <h4 class="card-title mt-3 text-center">Perfil de <?php echo $nombre ?></h4>
+                <h4 class="card-title mt-3 text-center">Perfil de <?php echo $dependiente_consulta->Nombre ?></h4>
 
                 <form>
                     <div class="input-group input-group-lg">
@@ -44,7 +51,7 @@ $nombre = $dependiente->Nombre;
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
 
-                        <input id="Nombre" name="Nombre" class="form-control input-lg" aria-describedby="inputGroup-sizing-lg" placeholder="Nombre completo" type="text" value="<?php echo $dependiente->Nombre ?>" disabled>
+                        <input id="Nombre" name="Nombre" class="form-control input-lg" aria-describedby="inputGroup-sizing-lg" placeholder="Nombre completo" type="text" value="<?php echo $dependiente_consulta->Nombre ?>" disabled>
 
                         <div id="nombre"></div>
                     </div>
@@ -54,7 +61,7 @@ $nombre = $dependiente->Nombre;
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email" value="<?php echo $dependiente->Correo ?>" disabled>
+                        <input name="correo" id="correo" class="form-control" placeholder="Correo Electronico" type="email" value="<?php echo $dependiente_consulta->Correo ?>" disabled>
                         <div id="Correo"></div>
                     </div>
                     <br>
@@ -62,7 +69,7 @@ $nombre = $dependiente->Nombre;
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" id="password" placeholder="Create password" type="password" value="<?php echo $dependiente->Password ?>" disabled>
+                        <input class="form-control" id="password" placeholder="Create password" type="password" value="<?php echo $dependiente_consulta->Password ?>" disabled>
                         <div id="Password"></div>
                     </div>
                     <br>
@@ -73,7 +80,7 @@ $nombre = $dependiente->Nombre;
                         </div>
 
                         <select name="provinciaList" id="provinciaList" class="custom-select" disabled>
-                            <option><?php echo $dependiente->Provincia ?></option>
+                            <option><?php echo $dependiente_consulta->Provincia ?></option>
 
                         </select>
                         <div id="provincia"></div>
@@ -86,7 +93,7 @@ $nombre = $dependiente->Nombre;
                             <label class="input-group-text" for="inputGroupSelect01">Localidad: </label>
                         </div>
                         <select name="localidadList" id="localidadList" class="form-control" disabled>
-                            <option><?php echo $dependiente->Localidad ?></option>
+                            <option><?php echo $dependiente_consulta->Localidad ?></option>
                         </select> <span id="advice"> </span>
                         <div id="localidad"></div>
                     </div>
@@ -96,7 +103,7 @@ $nombre = $dependiente->Nombre;
                     <div class="form-group">
                         <label for="start">Fecha de nacimiento:</label>
 
-                        <input type="date" id="fecha_nacimiento" name="trip-start" value="<?php echo $dependiente->Fecha_nacimiento ?>" disabled>
+                        <input type="date" id="fecha_nacimiento" name="trip-start" value="<?php echo $dependiente_consulta->Fecha_nacimiento ?>" disabled>
                     </div>
 
 
@@ -106,7 +113,7 @@ $nombre = $dependiente->Nombre;
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <textarea class="form-control" rows="3" id="dependencia" placeholder="<?php echo $dependiente->Necesidad ?>" disabled></textarea>
+                        <textarea class="form-control" rows="3" id="dependencia" placeholder="<?php echo $dependiente_consulta->Necesidad ?>" disabled></textarea>
 
                         <div id="fecha"></div>
 

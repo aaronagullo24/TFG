@@ -23,7 +23,7 @@ function dependiente($nombre)
             </div>
             <div class="d-flex flex-row justify-content-center">
 
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
+                <a href="cerrar_session_dependiente.php" class="btn btn-outline-danger">Cerrar sesion</a>
             </div>
         </div>
     </nav>
@@ -53,7 +53,7 @@ function voluntario($nombre)
             </div>
             <div class="d-flex flex-row justify-content-center">
 
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
+                <a href="cerrar_session_voluntario.php" class="btn btn-outline-danger">Cerrar sesion</a>
             </div>
         </div>
     </nav>
