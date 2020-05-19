@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
 }
+include_once "funciones.php";
 $voluntario = $_SESSION['usuario'];
 $nombre = $voluntario->Nombre;
 
@@ -29,31 +30,9 @@ $nombre = $voluntario->Nombre;
 
 <body style="background-color: #4FD53C;">
 
-     <!-- menú de navegación -->
-     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="ver_perfil_voluntario.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?php
-            echo $nombre;
-            ?>
-            </p> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
-                <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_dependiente.php">chat</a>
-                <a class="nav-item nav-link " href="perfil_dependiente.php">Perfil dependiente</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
-        </div>
-    </nav>
+<?php
+   voluntario($nombre);
+   ?>
 
     <section class="container my-0 py-4">
         <h3 class="text-uppercase text-center mb-4">Oldver</h3>
@@ -69,7 +48,7 @@ $nombre = $voluntario->Nombre;
 
     if ($consulta->rowCount() != 0) {
     ?>
-        <div class="alert alert-success">¡usted ya una persona a la que cuidar, MUCHAS GRACIAS!</div>
+        <div class="alert alert-success text-center">¡usted ya una persona a la que cuidar, MUCHAS GRACIAS!</div>
     <?php
     } else {
 

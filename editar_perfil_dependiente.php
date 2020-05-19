@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
+include_once("funciones.php");
 $dependiente = $_SESSION['dependiente'];
 $nombre = $dependiente->Nombre;
 
@@ -24,40 +25,22 @@ $nombre = $dependiente->Nombre;
     <script src="js/editar_perfil_dependientes.js"></script>
     <script src="js/AjaxCode.js"></script>
     <script src="js/mi_libreriaAjax.js"></script>
-    
+
 
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
-    <!-- menú de navegación -->
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="inicio_dependientes.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?=$dependiente->Nombre?> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link " href="solicitar_dependientes.php">Solicitar</a>
-                <a class="nav-item nav-link" href="ver_perfil_dependientes.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
-                <a class="nav-item nav-link text-danger" href="emergencia_dependientes.php">Emergencias</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    dependiente($nombre);
+    ?>
 
     <div class="container">
 
         <hr>
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 800px;">
-                <h4 class="card-title mt-3 text-center">Modificar Usuario: <?=$dependiente->Nombre ?></h4>
+                <h4 class="card-title mt-3 text-center">Modificar Usuario: <?= $dependiente->Nombre ?></h4>
 
                 <form>
                     <div class="input-group input-group-lg">
