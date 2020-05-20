@@ -15,6 +15,10 @@ $sql = "SELECT * FROM chat WHERE id=:id_dependiente OR id=:id_voluntario
 ORDER BY fecha ASC;";
 $consulta = $conexion->prepare($sql);
 $consulta->execute([":id_dependiente" => $dependiente->Numero_socio, ":id_voluntario" => $id->id_voluntario]);
+
+$sentencia = $conexion->prepare("UPDATE chat SET Leido=:Leido WHERE id =:id;");
+$resultado = $sentencia->execute([":Leido" => "leido", ":id" => $id->id_voluntario]);
+
 while ($voluntario1 = $consulta->fetch(PDO::FETCH_OBJ)) {
 
 ?>

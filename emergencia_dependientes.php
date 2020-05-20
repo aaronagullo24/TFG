@@ -52,7 +52,7 @@ $nombre = $dependiente->Nombre;
 <body style="background-color: aquamarine;">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
     <div align="center" class="mt-3">
         <a href="tel:+34684105254"><img src="resources/sos.jpg" /></a>

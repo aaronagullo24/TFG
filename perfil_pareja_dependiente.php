@@ -37,7 +37,7 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
 <body style="background-color: #4FD53C;">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
 
     <?php

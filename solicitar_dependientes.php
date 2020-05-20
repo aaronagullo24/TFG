@@ -26,7 +26,7 @@ $nombre = $dependiente->Nombre;
 <body style="background-color: #4FD53C;">
 
 <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
 
     <section class="container my-0 py-4">

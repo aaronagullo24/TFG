@@ -32,7 +32,7 @@ $nombre = $dependiente->Nombre;
 <body style="background-color: #4FD53C;">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
 
     <div class="container">

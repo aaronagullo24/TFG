@@ -29,7 +29,7 @@ $nombre = $dependiente->Nombre;
 <body style="background-color: #4FD53C;">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
 
     $sql = "SELECT * FROM dependiente WHERE Correo=:Correo";
     $consulta = $conexion->prepare($sql);

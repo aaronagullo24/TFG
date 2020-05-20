@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['dependiente'])) {
     header("Location: login.php");
 }
-include_once("funciones.php");
+include_once "funciones.php";
 include_once "conectar.php";
 $conexion = conectar();
 $dependiente = $_SESSION['dependiente'];
@@ -48,7 +48,7 @@ $nombre = $dependiente->Nombre;
 <body background="resources/chat.jpg" onload="ajax();">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
     <br>
 

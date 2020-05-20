@@ -91,7 +91,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 <body background="resources/calendario.jpg">
 
     <?php
-    dependiente($nombre);
+    dependiente($dependiente);
     ?>
     <?php
     $sql = "SELECT * FROM parejas WHERE id_dependientes=:id_dependientes";
