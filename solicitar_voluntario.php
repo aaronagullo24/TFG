@@ -30,9 +30,9 @@ $nombre = $voluntario->Nombre;
 
 <body style="background-color: #4FD53C;">
 
-<?php
-   voluntario($nombre);
-   ?>
+    <?php
+    voluntario($voluntario);
+    ?>
 
     <section class="container my-0 py-4">
         <h3 class="text-uppercase text-center mb-4">Oldver</h3>

@@ -30,7 +30,7 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
 <body style="background-color: #4FD53C;">
 
     <?php
-    voluntario($nombre);
+    voluntario($voluntario);
     ?>
     <?php
     $sql = "SELECT * FROM parejas WHERE id_voluntario=:id_voluntario";

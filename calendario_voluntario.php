@@ -89,7 +89,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
 <body background="resources/calendario.jpg">
     <?php
-    voluntario($nombre);
+    voluntario($voluntario);
     ?>
     <?php
     $sql = "SELECT * FROM parejas WHERE id_voluntario=:id_voluntario";

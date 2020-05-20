@@ -30,7 +30,7 @@ $nombre = $voluntario->Nombre;
 <body style="background-color: #4FD53C;">
 
     <?php
-    voluntario($nombre);
+    voluntario($voluntario);
     ?>
 
     <div class="container">
