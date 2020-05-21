@@ -18,7 +18,7 @@ function dependiente($dependiente)
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="inicio_dependientes.php">
+        <a class="navbar-brand text-white">
             <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
             <?php
             echo $dependiente->Nombre;
