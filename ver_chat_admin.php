@@ -54,7 +54,7 @@ $id_dependiente = $_SESSION['id_dependiente'];
     </script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
     <?php
     session_start();
     if (!isset($_SESSION['administrador'])) {
@@ -85,7 +85,7 @@ $id_dependiente = $_SESSION['id_dependiente'];
             <input type="hidden" name="id" id="id" value="<?php echo $id_dependiente ?>">
             <input type="hidden" name="nombre" id="nombre" value="<?php echo $administrador->correo ?>">
             <textarea name="mensaje" placeholder="Ingresa tu mensaje" class="form-control"></textarea>
-            <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-success" value="Enviar">
+            <input style="float:right;" id="enviar" type="submit" name="enviar" class="btn btn-primary" value="Enviar">
         </form>
         <?php
 

@@ -30,7 +30,7 @@ include_once "cabecera.php";
 
     <br>
     <br>
-    <div class="alert alert-success">¡USUARIO DADO DE ALTA CORRECTAMENTE!</div>
+    <div class="alert alert-success text-center">¡USUARIO DADO DE ALTA CORRECTAMENTE!</div>
 </body>
 
 </html>

@@ -28,7 +28,7 @@ $conexion = conectar();
 </head>
 
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
     <?php
     administrador($administrador);
     ?>

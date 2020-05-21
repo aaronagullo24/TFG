@@ -29,7 +29,7 @@ unset($_SESSION['id_voluntario']);
 
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
     <?php
     administrador($administrador);
     ?>
@@ -90,7 +90,7 @@ unset($_SESSION['id_voluntario']);
                         <form action="ver_chat_admin.php" method="post">
                             <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
                             <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
-                            <input type="submit" class="btn btn-success" value="Interactuar">
+                            <input type="submit" class="btn btn-primary" value="Interactuar">
                         </form>
                     </td>
 

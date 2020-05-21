@@ -24,7 +24,11 @@ include_once "cabecera.php";
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
     <?php
     administrador($administrador);
-    echo "hoola" ?>
+    ?>
+
+    <div id="container">
+    <div class="alert alert-success text-center">Gracias por formar parte del equipo de administradores de OLDVER</div>
+    </div>
