@@ -26,7 +26,7 @@ $administrador = $_SESSION['administrador'];
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <?php
     administrador($administrador);
@@ -59,7 +59,11 @@ $administrador = $_SESSION['administrador'];
             <tr>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Numero de Socio</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
-                <th style="width:180px; background-color: #5DACCD; color:#fff">Titulacion</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Correo</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Provincia</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Localidad</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Fecha de nacimiento</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Necesidad</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Modificar</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Eliminar</th>
             </tr>
@@ -67,35 +71,39 @@ $administrador = $_SESSION['administrador'];
         <tbody>
             <?php
 
-            while ($voluntario = $consulta->fetch(PDO::FETCH_OBJ)) {
+            while ($dependiente = $consulta->fetch(PDO::FETCH_OBJ)) {
 
             ?>
 
                 <tr>
-                    <td><?php echo $voluntario->Numero_socio ?></td>
-                    <td><?php echo $voluntario->Nombre ?></td>
-                    <td><?php echo $voluntario->Titulacion ?></td>
+                    <td><?php echo $dependiente->Numero_socio ?></td>
+                    <td><?php echo $dependiente->Nombre ?></td>
+                    <td><?php echo $dependiente->Correo ?></td>
+                    <td><?php echo $dependiente->Provincia ?></td>
+                    <td><?php echo $dependiente->Localidad ?></td>
+                    <td><?php echo $dependiente->Fecha_nacimiento ?></td>
+                    <td><?php echo $dependiente->Necesidad ?></td>
                     <td>
 
                         <form action="modificar_dependientes_admin.php" method="post">
-                            <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $voluntario->Numero_socio ?>">
-                            <input type="submit" class="btn btn-success" value="Modificar">
+                            <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
+                            <input type="submit" class="btn btn-primary" value="Modificar">
                         </form>
                     </td>
 
                     <td>
                         <?php
-                        if (esBoraable($voluntario->Numero_socio, $conexion) == true) {
+                        if (esBoraable($dependiente->Numero_socio, $conexion) == true) {
                         ?>
                             <form action="eliminar_dependiente.php" method="post">
-                                <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $voluntario->Numero_socio ?>">
+                                <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
                                 <input type="submit" class="btn btn-danger" value="Eliminar">
                             </form>
                         <?php
                         } else {
                         ?>
                             <div class="alert alert-warning alert-dismissable">
-                                El dependiente tiene a un dependiente a su cargo, debes deshacer la pareja
+                                No se puede eliminar
                             </div>
                         <?php
                         }

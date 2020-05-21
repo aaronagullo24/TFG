@@ -28,7 +28,7 @@ include_once "cabecera.php";
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <!-- menú de navegación -->
     <?php
@@ -41,7 +41,7 @@ include_once "cabecera.php";
 
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
-                <h4 class="card-title mt-3 text-center">Crear Voluntarios</h4>
+                <h4 class="card-title mt-2 text-center">Crear Voluntarios</h4>
 
                 <form>
                     <div class="form-group input-group">
@@ -92,7 +92,7 @@ include_once "cabecera.php";
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <textarea id="descripcion" name="descripcion" rows="3" cols="50" placeholder="Introduzca una breve descripcion de usted para que le conozca el dependiente"></textarea>
+                        <textarea id="descripcion" name="descripcion" rows="3" cols="50" placeholder="Introduzca una breve descripcion del voluntario para que le conozca el dependiente"></textarea>
                         <div id="descripcion1"></div>
                     </div>
 
@@ -100,7 +100,7 @@ include_once "cabecera.php";
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <textarea id="experiencia" name="experiencia" rows="3" cols="50" placeholder="Introduzca que tipo de experiencia tiene,si tiene..."></textarea>
+                        <textarea id="experiencia" name="experiencia" rows="3" cols="50" placeholder="Introduzca que tipo de experiencia que tiene,si tiene..."></textarea>
                         <div id="experiencia1"></div>
                     </div>
 

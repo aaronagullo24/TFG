@@ -40,7 +40,7 @@ if (isset($_REQUEST['nombre'])) {
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,20 +62,16 @@ if (isset($_REQUEST['nombre'])) {
                             <div class="form-label-group">
 
                                 <label for="nombre">Correo</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nick">
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Correo">
 
                             </div>
 
                             <div class="form-label-group">
                                 <label for="inputPassword">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
 
                             </div>
-
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Remember password</label>
-                            </div>
+                            <br>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">ENTRAR</button>
                             <hr class="my-4">
 

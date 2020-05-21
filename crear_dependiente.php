@@ -26,18 +26,17 @@ include_once "cabecera.php";
 
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
-<?php
+    <?php
     administrador($administrador);
     ?>
 
     <div class="container">
-
         <hr>
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 800px;">
-                <h4 class="card-title mt-3 text-center">Crear Dependientes</h4>
+                <h4 class="card-title mt-2 text-center">Crear Dependientes</h4>
 
                 <form>
                     <div class="input-group input-group-lg">

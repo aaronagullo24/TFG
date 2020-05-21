@@ -26,7 +26,7 @@ $administrador = $_SESSION['administrador'];
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <?php
     administrador($administrador);
@@ -79,7 +79,7 @@ $administrador = $_SESSION['administrador'];
 
                         <form action="modificar_voluntarios_admin.php" method="post">
                             <input type="hidden" id="voluntario" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
-                            <input type="submit" class="btn btn-success" value="Modificar">
+                            <input type="submit" class="btn btn-primary" value="Modificar">
                         </form>
                     </td>
 
