@@ -43,7 +43,7 @@ $nombre = $dependiente->Nombre;
     if ($consulta->rowCount() == 1) {
     ?>
     
-        <div class="alert alert-success mt-3">¡usted ya tiene un voluntario asignado,ENHORABUENA!</div>
+        <div class="alert alert-success mt-3 text-center">¡usted ya tiene un voluntario asignado,ENHORABUENA!</div>
     <?php
     } else {
     ?>
