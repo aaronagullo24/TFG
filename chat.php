@@ -22,7 +22,7 @@ $resultado = $sentencia->execute([":Leido" => "leido", ":id" => $id->id_voluntar
 while ($voluntario1 = $consulta->fetch(PDO::FETCH_OBJ)) {
 
 ?>
-    <div id="datos-chat" style="border:1px solid blue;background-color:white; word-wrap: break-word">
+    <div id="datos-chat" style="border:1px solid blue;background-color:white; word-wrap: break-word; scroll-behavior:auto">
         <span style="color:#1c62c4;"><?php echo $voluntario1->Nombre ?></span>
         <span style="float:right;"><?php echo $voluntario1->fecha ?></span>
         <p style="color:#848484;"><?php echo $voluntario1->mensaje ?></p>

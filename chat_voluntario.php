@@ -29,7 +29,6 @@ $nombre = $dependiente->Nombre;
     <script type="text/javascript">
         function ajax() {
             var req = new XMLHttpRequest();
-
             req.onreadystatechange = function() {
                 if (req.readyState == 4 && req.status == 200) {
                     document.getElementById('chat').innerHTML = req.responseText;
