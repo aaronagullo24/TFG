@@ -49,8 +49,10 @@ unset($_SESSION['id_voluntario']);
         <thead class="thead-dark">
             <tr>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre Voluntario</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Correo del Voluntario</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Id del Voluntario</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre Dependiente</th>
+                <th style="width:180px; background-color: #5DACCD; color:#fff">Correo del dependiente</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Id del dependiente</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">Interactuar</th>
                 <th style="width:180px; background-color: #5DACCD; color:#fff">vaciar Chat</th>
@@ -82,8 +84,10 @@ unset($_SESSION['id_voluntario']);
                 <tr>
 
                     <td><?php echo $voluntario->Nombre ?></td>
+                    <td><?php echo $voluntario->Correo ?></td>
                     <td><?php echo $voluntario->Numero_socio ?></td>
                     <td><?php echo $dependiente->Nombre ?></td>
+                    <td><?php echo $dependiente->Correo ?></td>
                     <td><?php echo $dependiente->Numero_socio ?></td>
                     <td>
 

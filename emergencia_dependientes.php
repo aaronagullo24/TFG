@@ -55,7 +55,7 @@ $nombre = $dependiente->Nombre;
     dependiente($dependiente);
     ?>
     <div align="center" class="mt-3">
-        <a href="tel:+34684105254"><img src="resources/sos.jpg" /></a>
+        <a href="tel:+34112"><img src="resources/sos.jpg" /></a>
 
         <h1>Pulse para llamar a los servicio de emergencia</h1>
     </div>
