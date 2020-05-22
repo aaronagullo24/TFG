@@ -26,6 +26,7 @@ $nombre = $dependiente->Nombre;
     <script src="js/AjaxCode.js"></script>
     <script src="js/mi_libreriaAjax.js"></script>
     <link rel="stylesheet" type="text/css" href="estilo.css">
+    
     <script type="text/javascript">
         function ajax() {
             var req = new XMLHttpRequest();
@@ -64,8 +65,8 @@ $nombre = $dependiente->Nombre;
     } else {
     ?>
         <div class="container">
-            <div id="caja-chat" style="border: solid 3px black;background-color: #A4F4AA ">
-                <div id="chat" style="background-color:#A4F4AA;">
+            <div id="caja-chat" style="border: solid 3px black;background-color: #A4F4AA">
+                <div id="chat" style="background-color:#A4F4AA; ">
 
                 </div>
             </div>
