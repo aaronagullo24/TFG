@@ -47,7 +47,7 @@ $conexion = conectar();
 
                     while ($dependiente = $consulta->fetch(PDO::FETCH_OBJ)) {
                     ?>
-                        <option value="<?php echo $dependiente->Numero_socio ?>"><?php echo $dependiente->Nombre . " - " . $dependiente->Numero_socio ?></option>
+                        <option value="<?php echo $dependiente->Numero_socio ?>"><?php echo $dependiente->Nombre . " - " . $dependiente->Correo." - ". $dependiente->Numero_socio ?></option>
                     <?php
                     }
                     ?>
@@ -58,7 +58,7 @@ $conexion = conectar();
                 <label for="voluntario">Voluntarios</label>
                 <select class="form-control form-control-lg" id="voluntarios" name="voluntarios">
                     <?php
-                    $sql2 = " SELECT voluntario,voluntario.Numero_socio,voluntario.Nombre FROM voluntario 
+                    $sql2 = " SELECT voluntario,voluntario.Numero_socio,voluntario.Nombre,voluntario.Correo FROM voluntario 
                     left JOIN dependiente ON voluntario.Numero_socio = dependiente.voluntario";
                     $c = $conexion->prepare($sql2);
                     $c->execute();
@@ -67,7 +67,7 @@ $conexion = conectar();
                     while ($pareja = $c->fetch(PDO::FETCH_OBJ)) {
                         if ($pareja->voluntario == NULL) {
                     ?>
-                            <option value="<?php echo $pareja->Numero_socio ?>"><?php echo $pareja->Nombre . " - " . $pareja->Numero_socio ?></option>
+                            <option value="<?php echo $pareja->Numero_socio ?>"><?php echo $pareja->Nombre . " - " .  $pareja->Correo." - ". $pareja->Numero_socio ?></option>
                     <?php
                         }
                     }
