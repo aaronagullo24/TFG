@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
 }
+include_once "funciones.php";
 include_once "conectar.php";
 $conexion = conectar();
 $voluntario = $_SESSION['usuario'];
@@ -50,27 +51,9 @@ $nombre = $voluntario->Nombre;
 
 <body background="resources/chat.jpg" onload="ajax();">
 
-    <!-- menú de navegación -->
-    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="inicio_dependientes.php">
-            <img src="resources/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo Bootstrap">
-            <?= $voluntario->Nombre ?> </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div class="navbar-nav mr-auto ml-auto text-center">
-            <a class="nav-item nav-link " href="solicitar_voluntario.php">Solicitar</a>
-                <a class="nav-item nav-link" href="ver_perfil_voluntario.php">Perfil</a>
-                <a class="nav-item nav-link " href="calendario_voluntario.php">Calendario</a>
-                <a class="nav-item nav-link " href="chat_voluntario.php">Chat</a>
-                <a class="nav-item nav-link " href="perfil_dependiente.php">Perfil dependiente</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center">
-                <a href="login.php" class="btn btn-outline-danger">Cerrar sesion</a>
-            </div>
-        </div>
-    </nav>
+    <?php
+    voluntario($voluntario);
+    ?>
     <br>
 
     <?php
@@ -81,7 +64,9 @@ $nombre = $voluntario->Nombre;
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success">El chat se activara automaticamente cuando tenga un dependiente al que cuidar</div>
+        <div class="alert alert-success text-center">
+            El chat se activara automaticamente cuando tenga un dependiente al que cuidar
+        </div>
     <?php
     } else {
     ?>

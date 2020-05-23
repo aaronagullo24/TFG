@@ -49,15 +49,17 @@ $nombre = $dependiente->Nombre;
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body style="background-color: aquamarine;">
+<body style="background-color: #4FD53C;">
 
     <?php
     dependiente($dependiente);
     ?>
     <div align="center" class="mt-3">
         <a href="tel:+34112"><img src="resources/sos.jpg" /></a>
+        <div class="alert alert-danger mt-2" role="alert">
+            <h1>Pulse para llamar a los servicio de emergencia</h1>
+        </div>
 
-        <h1>Pulse para llamar a los servicio de emergencia</h1>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

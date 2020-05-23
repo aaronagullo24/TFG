@@ -92,7 +92,9 @@ $nombre = $voluntario->Nombre;
                             $dependiente1 = $consulta2->fetch(PDO::FETCH_OBJ);
 
                             if ($consulta2->rowCount() != 0) {
-                                echo "Ya tiene una solicitud";
+                            ?>
+                               <p class="mark text-center"> Solicitud enviada</p>
+                            <?php
                             } else {
 
                             ?>

@@ -49,7 +49,9 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
     if ($consulta->rowCount() == 0) {
     ?>
 
-        <div class="alert alert-success mt-3">Esta funcion se habilitara cuando tenga un voluntario</div>
+        <div class="alert alert-success mt-3 text-center">
+            Esta funcion se habilitara cuando tenga un voluntario
+        </div>
     <?php
     } else {
     ?>

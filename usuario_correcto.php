@@ -31,7 +31,7 @@ if (isset($_SESSION['alta'])) {
 
 </head>
 
-<body>
+<body style="background-color: #4FD53C;">
 
     <!-- menú de navegación -->
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
@@ -57,7 +57,7 @@ if (isset($_SESSION['alta'])) {
 
     <br>
     <br>
-    <div class="alert alert-success">¡USUARIO DADO DE ALTA CORRECTAMENTE!</div>
+    <div class="alert alert-success text-center">¡USUARIO DADO DE ALTA CORRECTAMENTE!</div>
 </body>
 
 </html>

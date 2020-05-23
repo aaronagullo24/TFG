@@ -25,7 +25,7 @@ $nombre = $dependiente->Nombre;
 
 <body style="background-color: #4FD53C;">
 
-<?php
+    <?php
     dependiente($dependiente);
     ?>
 
@@ -42,14 +42,14 @@ $nombre = $dependiente->Nombre;
 
     if ($consulta->rowCount() == 1) {
     ?>
-    
+
         <div class="alert alert-success mt-3 text-center">¡usted ya tiene un voluntario asignado,ENHORABUENA!</div>
     <?php
     } else {
     ?>
         <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar...">
         <br>
-        <table class="table table-hover order-table" id="tabla" >
+        <table class="table table-hover order-table" id="tabla">
             <thead class="thead-dark">
                 <tr>
                     <th style="width:180px; background-color: #5DACCD; color:#fff">Nombre</th>
@@ -89,7 +89,7 @@ $nombre = $dependiente->Nombre;
                             <form action="aceptar_solicitud.php" method="post">
                                 <input type="hidden" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
                                 <input type="hidden" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
-                                <input type="submit" class="btn btn-success" value="Aceptar Solicitud">
+                                <input type="submit" class="btn btn-primary" value="Aceptar Solicitud">
                             </form>
                         </td>
 

@@ -14,6 +14,9 @@ $resultado = $sentencia->execute(["id_dependientes" => $id_dependiente, "id_volu
 $sentencia = $conexion->prepare("DELETE FROM chat WHERE id=:id OR id=:id_v");
 $resultado = $sentencia->execute(["id" => $id_dependiente, ":id_v" => $id_voluntario]);
 
+$sentencia = $conexion->prepare("DELETE FROM calendarios WHERE id_voluntario=:id_voluntario OR id_dependiente=:id_dependiente");
+$resultado = $sentencia->execute(["id_dependiente" => $id_dependiente, ":id_voluntario" => $id_voluntario]);
+
 try {
     $sentencia = $conexion->prepare("UPDATE dependiente SET voluntario=:voluntario WHERE Numero_socio=:Numero_socio");
     $resultado = $sentencia->execute([

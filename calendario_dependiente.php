@@ -101,7 +101,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success mt-3">¡Aun no tiene un voluntario para que le cuide!</div>
+        <div class="alert alert-success mt-3 text-center">¡Aun no tiene un voluntario para que le cuide!</div>
     <?php
     } else {
     ?>

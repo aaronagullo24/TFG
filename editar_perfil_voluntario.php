@@ -35,9 +35,7 @@ $nombre = $voluntario->Nombre;
 
     <div class="container">
         <br>
-
         <hr>
-
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h4 class="card-title mt-3 text-center">Perfil de <?php echo $nombre ?></h4>

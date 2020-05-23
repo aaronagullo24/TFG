@@ -40,7 +40,7 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success mt-3">Podra ver el perfil de su dependiente cuando tenga uno a su cargo</div>
+        <div class="alert alert-success mt-3 text-center">Podra ver el perfil de su dependiente cuando tenga uno a su cargo</div>
     <?php
     } else {
     ?>
@@ -108,16 +108,11 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
                             <div id="localidad"></div>
                         </div>
                         <br>
-
-
                         <div class="form-group">
                             <label for="start">Fecha de nacimiento:</label>
 
                             <input type="date" id="fecha_nacimiento" name="trip-start" value="<?php echo $dependiente->Fecha_nacimiento ?>" disabled>
                         </div>
-
-
-
                         <br>
                         <div class="form-group">
                             <div class="input-group-prepend">
