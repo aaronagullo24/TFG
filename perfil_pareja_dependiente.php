@@ -137,7 +137,7 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
                         Si elimina a su voluntario este ya no sera su pareja y tendra que ponerse en contacto con otro
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <form action="eliminar_pareja_dependiente.php">
                             <input type="hidden" id="voluntario" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
                             <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">

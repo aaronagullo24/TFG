@@ -33,10 +33,17 @@ try {
 }
 
 try {
-    $sentencia = $conexion->prepare("DELETE FROM solicitudes 
-        WHERE dependiente=:dependiente;");
+    $sentencia = $conexion->prepare("DELETE FROM solicitudes WHERE dependiente=:dependiente;");
     $resultado = $sentencia->execute([
         ":dependiente" => $id_dependiente
+    ]);
+} catch (PDOException $e) {
+}
+
+try {
+    $sentencia = $conexion->prepare("DELETE FROM solicitudes WHERE voluntario=:voluntario;");
+    $resultado = $sentencia->execute([
+        ":voluntario" => $id_voluntario
     ]);
 } catch (PDOException $e) {
 }
