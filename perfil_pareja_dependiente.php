@@ -93,13 +93,7 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
                             </select>
                             <div id="Titulacion"></div>
                         </div>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                            </div>
-                            <input class="form-control" id="password" placeholder="Create password" type="password" value="<?php echo $voluntario->Password ?>" disabled>
-                            <div id="Password"></div>
-                        </div>
+                        
 
 
                         <div class="form-group input-group">

@@ -75,14 +75,7 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
                             <div id="Correo"></div>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                            </div>
-                            <input class="form-control" id="password" placeholder="Create password" type="password" value="<?php echo $dependiente->Password ?>" disabled>
-                            <div id="Password"></div>
-                        </div>
-                        <br>
+                        
 
                         <div class="input-group mb-8">
                             <div class="input-group-prepend">

@@ -36,13 +36,13 @@ $consulta1->execute([':Numero_socio' => $voluntario]);
 $voluntario1 = $consulta1->fetch(PDO::FETCH_OBJ);
 
 try {
-    $sql = "INSERT INTO calendarios (id,title,start,end,editable,id_voluntario,id_dependiente,color) value 
-    (:id,:title,:start,:end,:editable,:id_voluntario,:id_dependiente,:color)";
+    $sql = "INSERT INTO calendarios (id,title,start,end,editable,id_voluntario,id_dependiente,color,Detalles) value 
+    (:id,:title,:start,:end,:editable,:id_voluntario,:id_dependiente,:color,:Detalles)";
     $consulta = $conexion->prepare($sql);
     $consulta->execute([
         ":id" => null, ":title" => $evento, ":start" => $inicio,
         ":end" => $finalizacion,  ":editable" => 11, ":id_voluntario" => $voluntario,
-        ":id_dependiente" => $dependiente->id_dependientes, ":color" => $color
+        ":id_dependiente" => $dependiente->id_dependientes, ":color" => $color,":Detalles"=>$detalles
     ]);
 } catch (PDOException $e) {
 }
