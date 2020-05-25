@@ -58,13 +58,13 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
         <div class="container">
             <br>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                Eliminar Pareja
+                Eliminar voluntario
             </button>
             <hr>
 
             <div class="card bg-light">
                 <article class="card-body mx-auto" style="max-width: 400px;">
-                    <h4 class="card-title mt-3 text-center">Perfil de su voluntario <?php echo $voluntario->Nombre ?></h4>
+                    <h4 class="card-title mt-3 text-center">Perfil voluntario <?php echo $voluntario->Nombre ?></h4>
 
                     <form>
                         <div class="form-group input-group">
@@ -122,20 +122,20 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Esta seguro que desea eliminar a su pareja?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">¿Está seguro de que desea eliminar a su voluntario?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Si elimina a su voluntario este ya no sera su pareja y tendra que ponerse en contacto con otro
+                        Si elimina a su voluntario ya no podrá volver a atenderle y comenzará un nuevo proceso de búsqueda. 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <form action="eliminar_pareja_dependiente.php">
                             <input type="hidden" id="voluntario" name="voluntario" value="<?php echo $voluntario->Numero_socio ?>">
                             <input type="hidden" id="dependiente" name="dependiente" value="<?php echo $dependiente->Numero_socio ?>">
-                            <input type="submit" class="btn btn-danger" value="ELIMINAR">
+                            <input type="submit" class="btn btn-danger" value="Eliminar">
                         </form>
                     </div>
                 </div>

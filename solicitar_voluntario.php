@@ -35,9 +35,9 @@ $nombre = $voluntario->Nombre;
     ?>
 
     <section class="container my-0 py-4">
-        <h3 class="text-uppercase text-center mb-4">Oldver</h3>
-        <p class="lead text-center mb-5">Aqui puedes enviar peticiones a nuestros mayores para que puedas ayudarles,
-            todos estaran encantados de tenerte </p>
+        <h3 class="text-uppercase text-center mb-4">Enviar solicitud</h3>
+        <p class="lead text-center mb-5">Puedes enviarle petición a cualquiera de nuestros dependientes para 
+            brindarle tu ayuda, ¡te están esperando! </p>
 
     </section>
     <?php
@@ -48,7 +48,8 @@ $nombre = $voluntario->Nombre;
 
     if ($consulta->rowCount() != 0) {
     ?>
-        <div class="alert alert-success text-center">¡usted ya una persona a la que cuidar, MUCHAS GRACIAS!</div>
+        <div class="alert alert-success text-center">¡Enhorabuena, tienes un dependiente a tu cargo! Gracias
+            por colaborar con Oldver</div>
     <?php
     } else {
 

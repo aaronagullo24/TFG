@@ -60,7 +60,7 @@ $nombre = $dependiente->Nombre;
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success text-center">¡usted aun no tiene un ayudante asignado, vaya a la pestaña de solicitudes!</div>
+        <div class="alert alert-success text-center">No tiene voluntario asignado para iniciar chat. </div>
     <?php
     } else {
     ?>

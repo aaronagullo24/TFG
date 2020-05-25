@@ -35,8 +35,8 @@ $nombre = $dependiente->Nombre;
     ?>
 
     <section class="container my-0 py-4">
-        <h3 class="text-uppercase text-center mb-4">Solucitudes de voluntarios</h3>
-        <p class="lead text-center mb-5"> Peticiones de voluntarios para ayudarle. </p>
+        <h3 class="text-uppercase text-center mb-4">Solicitudes</h3>
+        <p class="lead text-center mb-5"> Peticiones de voluntarios.  </p>
 
     </section>
     <?php
@@ -48,7 +48,7 @@ $nombre = $dependiente->Nombre;
     if ($consulta->rowCount() == 1) {
     ?>
 
-        <div class="alert alert-success mt-3 text-center">¡usted ya tiene un voluntario asignado,ENHORABUENA!</div>
+        <div class="alert alert-success mt-3 text-center">¡Tiene un voluntario asignado, enhorabuena!</div>
     <?php
     } else {
     ?>

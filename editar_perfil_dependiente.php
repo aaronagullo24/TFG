@@ -40,7 +40,7 @@ $nombre = $dependiente->Nombre;
         <hr>
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 800px;">
-                <h4 class="card-title mt-3 text-center">Modificar Usuario: <?= $dependiente->Nombre ?></h4>
+                <h4 class="card-title mt-3 text-center">Modificar perfil</h4>
 
                 <form>
                     <div class="input-group input-group-lg">
@@ -125,7 +125,7 @@ $nombre = $dependiente->Nombre;
 
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block" id="boton"> Guardar Cambios </button>
+                        <button type="submit" class="btn btn-primary btn-block" id="boton"> Guardar cambios </button>
                     </div>
                     <div id="alta"></div>
 

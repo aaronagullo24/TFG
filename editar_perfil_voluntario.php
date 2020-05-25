@@ -38,7 +38,7 @@ $nombre = $voluntario->Nombre;
         <hr>
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
-                <h4 class="card-title mt-3 text-center">Perfil de <?php echo $nombre ?></h4>
+                <h4 class="card-title mt-3 text-center">Editar perfil</h4>
 
                 <form>
                     <div class="form-group input-group">
@@ -103,7 +103,7 @@ $nombre = $voluntario->Nombre;
                     </div>
 
                     <div class="form-group">
-                        <a href="editar_perfil_voluntario.php" type="button" class="btn btn-success" id="boton">Guardar Cambios</a>
+                        <a href="editar_perfil_voluntario.php" type="button" class="btn btn-success" id="boton">Guardar cambios</a>
                     </div>
 
                 </form>

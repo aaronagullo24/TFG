@@ -43,7 +43,7 @@ $nombre = $dependiente->Nombre;
 
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
-                <h4 class="card-title mt-3 text-center">Perfil de <?php echo $dependiente_consulta->Nombre ?></h4>
+                <h4 class="card-title mt-3 text-center">Mi perfil</h4>
 
                 <form>
                     <div class="input-group input-group-lg">
@@ -121,7 +121,7 @@ $nombre = $dependiente->Nombre;
 
 
                     <div class="form-group">
-                        <a href="editar_perfil_dependiente.php" type="button" class="btn btn-success">Editar Perfil</a>
+                        <a href="editar_perfil_dependiente.php" type="button" class="btn btn-success">Editar perfil</a>
                     </div>
                     <div id="alta"></div>
                 </form>
