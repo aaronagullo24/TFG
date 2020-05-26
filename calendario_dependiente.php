@@ -152,7 +152,7 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
 
                             <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
@@ -194,12 +194,14 @@ $consulta->execute([':id_dependiente' => $dependiente->Numero_socio]);
                             <input type="text" id="detalles1" name="detalles1">
 
                             <input type="hidden" name="id" id="id">
+                            <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
                         <form action="borrar_calendario_dependiente.php" method="POST">
+                            <input type="hidden" value="<?php echo $dependiente->Numero_socio ?>" name="dependiente" id="dependiente">
                             <input type="hidden" name="id1" id="id1">
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>

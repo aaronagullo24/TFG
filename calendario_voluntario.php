@@ -153,7 +153,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
                             <input type="hidden" value="<?php echo $voluntario->Numero_socio ?>" name="voluntario" id="voluntario">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
@@ -196,12 +196,16 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
                             <input type="text" id="detalles1" name="detalles1">
 
                             <input type="hidden" name="id" id="id">
+                            <input type="hidden" value="<?php echo $voluntario->Numero_socio ?>" name="voluntario" id="voluntario">
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
+
                         </form>
                         <form action="borrar_evento_voluntario.php" method="POST">
+                        <input type="hidden" id="evento1" name="evento1">
+                            <input type="hidden" value="<?php echo $voluntario->Numero_socio ?>" name="voluntario" id="voluntario">
                             <input type="hidden" name="id1" id="id1">
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>

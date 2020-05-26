@@ -24,7 +24,7 @@ if ($dependiente->voluntario != null) {
     $from = "admin@oldver.es";
     $to = $voluntario1->Correo;
     $subject = "Emergencia";
-    $message = "Tu dependiente ha pulsado el botón de SOS y necesita tu apoyo. ¡Cuenta contigo, en estos duros momentos!";
+    $message = "Tu dependiente ha pulsado el botón de SOS y necesita tu apoyo. ¡Te está esperando!";
     $headers = "From:" . $from;
     mail($to, $subject, $message, $headers);
 }
