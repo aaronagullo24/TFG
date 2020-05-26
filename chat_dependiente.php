@@ -71,8 +71,8 @@ $nombre = $voluntario->Nombre;
     } else {
     ?>
         <div class="container">
-            <div id="caja-chat" style="border: solid 3px black; background-color: #A4F4AA">
-                <div id="chat" style="background-color: #A4F4AA;">
+            <div id="caja-chat" style="border: solid 3px black; background-color: #4FD53C">
+                <div id="chat" style="background-color: #4FD53C;">
 
                 </div>
             </div>

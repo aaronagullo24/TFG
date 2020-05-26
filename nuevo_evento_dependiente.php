@@ -51,8 +51,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $voluntario1->Correo;
-$subject = "Evento proximo";
-$message = "El proximo dia ".$fecha." tiene ".$evento. ", recuerdelo";
+$subject = "Evento próximo";
+$message = "El próximo día ".$fecha." tienes ".$evento. ", ¡no lo olvides!";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 
@@ -61,8 +61,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $dependiente2->Correo;
-$subject = "Evento proximo";
-$message = "El proximo dia ".$fecha." tiene ".$evento. ", recuerdelo";
+$subject = "Evento próximo";
+$message = "El próximo día ".$fecha." tiene ".$evento. ", ¡recuérdelo!";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 

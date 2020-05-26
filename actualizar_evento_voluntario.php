@@ -47,7 +47,7 @@ error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $voluntario1->Correo;
 $subject = "Actualizacion de evento";
-$message = "El evento ".$evento." a sido modificado, entre a su calendario para verlo";
+$message = "El evento ".$evento." ha sido modificado, consulta tu calendario.";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 
@@ -57,7 +57,7 @@ error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $dependiente2->Correo;
 $subject = "Actualizacion de evento";
-$message = "El evento ".$evento." a sido modificado, entre a su calendario para verlo";
+$message = "El evento ".$evento." ha sido modificado, consulte su calendario.";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 

@@ -39,8 +39,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $voluntario1->Correo;
-$subject = "Evento Eliminado";
-$message = "El evento " . $calendario->title . " a sido eliminado";
+$subject = "Evento eliminado";
+$message = "El evento " . $calendario->title . " ha sido cancelado.";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 
@@ -49,8 +49,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $from = "admin@oldver.es";
 $to = $dependiente2->Correo;
-$subject = "Evento Eliminado";
-$message = "El evento " . $calendario->title . " a sido eliminado";
+$subject = "Evento eliminado";
+$message = "El evento " . $calendario->title . " ha sido cancelado.";
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
 
