@@ -64,7 +64,7 @@ $voluntario = $consulta1->fetch(PDO::FETCH_OBJ);
 
             <div class="card bg-light">
                 <article class="card-body mx-auto" style="max-width: 400px;">
-                    <h4 class="card-title mt-3 text-center">Perfil voluntario <?php echo $voluntario->Nombre ?></h4>
+                    <h4 class="card-title mt-3 text-center">Perfil voluntario </h4>
 
                     <form>
                         <div class="form-group input-group">

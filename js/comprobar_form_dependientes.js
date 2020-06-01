@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
 //provincia
 function comprobar_provincia() {
 	if (document.getElementById('provinciaList').value == 'Seleccione su provincia...') {
-		document.getElementById("provincia").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("provincia").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[3] = "F";
 	} else {
 		document.getElementById("provincia").innerHTML = "&#10004";
@@ -38,7 +38,7 @@ function gParProvincia() {
 //Localidad
 function comprobar_localidad() {
 	if (document.getElementById('localidadList').value == 'Seleccione antes una provincia') {
-		document.getElementById("localidad").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("localidad").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[4] = "F";
 	} else {
 		document.getElementById("localidad").innerHTML = "&#10004";
@@ -53,7 +53,7 @@ function gParLocalidad() {
 //password
 function comprobar_password() {
 	if (document.getElementById('password').value == '') {
-		document.getElementById("Password").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("Password").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[2] = "F";
 	} else {
 		document.getElementById("Password").innerHTML = "&#10004";
@@ -105,10 +105,10 @@ function cBAlta(resultado) {
 //comprobar correo
 function comprobar_correo() {
 	if (document.getElementById('correo').value == '') {
-		document.getElementById("Correo").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("Correo").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 
 	} else if (validarEmail(document.getElementById('correo').value) == false) {
-		document.getElementById("Correo").innerHTML = "correo incorrecto";
+		document.getElementById("Correo").innerHTML = "<p style='color: red;'>Correo incorrecto</p>";
 
 	} else {
 		llamarAjax('comprobar_correo_dependientes.php', gParCorreo(), 'cBCorreo', 'F_Error', 'post', 0);
@@ -149,7 +149,7 @@ function cBCorreo(resultado) {
 //comprobar nombre
 function comprobar_nombre() {
 	if (document.getElementById('Nombre').value == '') {
-		document.getElementById("nombre").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("nombre").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[0] = "F";
 	} else if (!isNaN(document.getElementById('Nombre').value)) {
 		document.getElementById("nombre").innerHTML = "Solo letras y espacios";

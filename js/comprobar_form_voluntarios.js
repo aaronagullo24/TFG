@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
 //experiencia
 function comprobar_experiencia() {
 	if (document.getElementById('experiencia').value == '') {
-		document.getElementById("experiencia1").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("experiencia1").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[4] = "F";
 	} else {
 		document.getElementById("experiencia1").innerHTML = "&#10004";
@@ -40,7 +40,7 @@ function gParexperiencia() {
 //descripcion
 function comprobar_descripcion() {
 	if (document.getElementById('descripcion').value == '') {
-		document.getElementById("descripcion1").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("descripcion1").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[5] = "F";
 	} else {
 		document.getElementById("descripcion1").innerHTML = "&#10004";
@@ -57,7 +57,7 @@ function gParDescripcion() {
 //Titulo
 function comprobar_titulacion() {
 	if (document.getElementById('titulacion').value == 'Seleccione si posee algun titulo...') {
-		document.getElementById("Titulacion").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("Titulacion").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[3] = "F";
 	} else {
 		document.getElementById("Titulacion").innerHTML = "&#10004";
@@ -73,7 +73,7 @@ function gParTitulacion() {
 //password
 function comprobar_password() {
 	if (document.getElementById('password').value == '') {
-		document.getElementById("Password").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("Password").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[2] = "F";
 	} else {
 		document.getElementById("Password").innerHTML = "&#10004";
@@ -123,10 +123,10 @@ function cBAlta(resultado) {
 //comprobar correo
 function comprobar_correo() {
 	if (document.getElementById('correo').value == '') {
-		document.getElementById("Correo").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("Correo").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 
 	} else if (validarEmail(document.getElementById('correo').value) == false) {
-		document.getElementById("Correo").innerHTML = "correo incorrecto";
+		document.getElementById("Correo").innerHTML = "<p style='color: red;'>Correo incorrecto</p>";
 
 	} else {
 		llamarAjax('comprobar_correo.php', gParCorreo(), 'cBCorreo', 'F_Error', 'post', 0);
@@ -167,7 +167,7 @@ function cBCorreo(resultado) {
 //comprobar nombre
 function comprobar_nombre() {
 	if (document.getElementById('Nombre').value == '') {
-		document.getElementById("nombre").innerHTML = "RELLENA EL CAMPO";
+		document.getElementById("nombre").innerHTML = "<p style='color: red;'>Rellene el campo</p>";
 		comprobar[0] = "F";
 	} else if (!isNaN(document.getElementById('Nombre').value)) {
 		document.getElementById("nombre").innerHTML = "Solo letras y espacios";
