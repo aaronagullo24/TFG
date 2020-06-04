@@ -65,7 +65,7 @@ $nombre = $voluntario->Nombre;
     if ($consulta->rowCount() == 0) {
     ?>
         <div class="alert alert-success text-center">
-            El chat se activara automaticamente cuando tenga un dependiente al que cuidar
+        No tiene un dependiente para acceder al chat. Se activará automáticamente cuando le sea asignado.
         </div>
     <?php
     } else {

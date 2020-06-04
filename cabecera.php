@@ -57,7 +57,7 @@ function administrador($administrador){
     </div>
     <div class="d-flex flex-row justify-content-center">
 
-        <a href="cerrar_sesion_admin.php" class="btn btn-outline-danger">Cerrar sesion</a>
+        <a href="cerrar_sesion_admin.php" class="btn btn-outline-danger">Cerrar sesión</a>
     </div>
     </div>
 </nav>

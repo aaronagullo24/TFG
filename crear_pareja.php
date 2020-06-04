@@ -30,7 +30,7 @@ $conexion = conectar();
     administrador($administrador);
     if (isset($_REQUEST['bien'])) {
     ?>
-        <div class="alert alert-success">Pareja creada con exito</div>
+        <div class="alert alert-success text-center">Pareja creada con exito</div>
     <?php
     }
     ?>

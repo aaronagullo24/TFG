@@ -30,5 +30,5 @@ include_once "cabecera.php";
     ?>
 
     <div id="container">
-    <div class="alert alert-success text-center">Gracias por formar parte del equipo de administradores de OLDVER</div>
+    <div class="alert alert-success text-center">Bienvenido al equipo administrativo de OLDVER</div>
     </div>

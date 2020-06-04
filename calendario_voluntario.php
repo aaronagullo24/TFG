@@ -100,8 +100,8 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
     if ($consulta->rowCount() == 0) {
     ?>
         <div class="alert alert-success mt-3 text-center">
-            El calendario se activara automaticamente cuando tenga un dependiente al que cuidar
-        </div>
+            No tiene dependiente para acceder al calendario. Se activará automáticamente cuando le sea asignado. 
+        </div> 
     <?php
     } else {
     ?>
@@ -189,7 +189,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
                             <input type="hidden" id="finalizacion1" name="finalizacion1">
                             <br>
-                            <label for="">Color del evento:</label>
+                            <label for="">Color del evento:</label>ç
                             <input type="color" id="color1" name="color1">
                             <br>
                             <label for="">Detalles:</label>

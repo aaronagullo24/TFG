@@ -32,7 +32,7 @@ $conexion = conectar();
     <?php
     administrador($administrador);
     ?>
-    <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
+    <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar...">
     <br>
     <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -120,7 +120,7 @@ $conexion = conectar();
                         <input type="hidden" name="dependiente" value="<?php echo $dependiente ?>">
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>

@@ -40,7 +40,7 @@ $dependiente = $consulta->fetch(PDO::FETCH_OBJ);
 
     if ($consulta->rowCount() == 0) {
     ?>
-        <div class="alert alert-success mt-3 text-center">Podra ver el perfil de su dependiente cuando tenga uno a su cargo</div>
+        <div class="alert alert-success mt-3 text-center">Todavía no se le ha asignado un dependiente.</div>
     <?php
     } else {
     ?>

@@ -30,7 +30,7 @@ $conexion = conectar();
 <?php
     administrador($administrador);
     ?>
-    <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="buscar..">
+    <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Buscar...">
     <br>
     <br>
     <table class="table table-hover order-table" id="tabla">
