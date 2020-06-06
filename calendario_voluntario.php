@@ -189,7 +189,7 @@ $consulta->execute([':id_voluntario' => $voluntario->Numero_socio]);
 
                             <input type="hidden" id="finalizacion1" name="finalizacion1">
                             <br>
-                            <label for="">Color del evento:</label>ç
+                            <label for="">Color del evento:</label>
                             <input type="color" id="color1" name="color1">
                             <br>
                             <label for="">Detalles:</label>

@@ -37,7 +37,7 @@ $resultado = $sentencia->execute(["Numero_socio" => $id_dependiente]);
     <br>
     <br>
 
-    <div class="alert alert-success text-center">Eliminador Correctamente</div>
+    <div class="alert alert-success text-center">Eliminado Correctamente</div>
 </body>
 
 </html>
